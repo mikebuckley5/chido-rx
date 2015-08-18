@@ -19,6 +19,7 @@ app.controller('newOrderCtrl', function ($scope, $modal, newOrderSrvc) {
 
     //ADD NEW ORDER
     $scope.addNewOrder = function (data) {
+        console.log(data);
         newOrderSrvc.createNewOrder(data).then(function (response) {
             console.log(response);
             $scope.order = "";
