@@ -1,0 +1,31 @@
+<form action="">
+   Patient Name: <input type="text" placeholder="Last, First" ng-model="order.patient">&nbsp <button ng-click="open()">+</button><br />
+
+   Prescriber: <input type="text" placeholder="Last, First" ng-model="order.prescriber"><br />
+
+   Date Written: <input type="date" ng-model="order.date.written"><br />
+
+   Drug: <input type="text" placeholder="Type drug name.." ng-model="order.drug"><br />
+
+   Directions: <textarea class="direction-input" cols="30" rows="6" ng-model="order.directions"></textarea><br />
+
+   Dispense Qty: <input type="number" placeholder="0" ng-model="order.dispqty"><br />
+
+   Total Qty: <input type="number" placeholder="0" ng-model="order.totalqty"><br />
+
+   Refills: <input type="number" placeholder="0" ng-model="order.refills"><br />
+
+   Day Supply: <input type="number" placeholder="0" ng-model="order.daysupply"><br />
+   <div>
+       <a href="#/fillqueue">
+           <button ng-click="addNewOrder(order)">Add Drug<br />&<br />Continue to Next Step</button>
+       </a>
+       <a href="">
+           <button ng-click="addNewOrder(order)">Add Drug<br />&<br />Type Another Drug</button>
+       </a>
+       <a href="#/landing">
+           <button>&nbsp<br />Cancel<br />&nbsp</button>
+       </a>
+   </div>
+   {{ alert.message }}
+</form>

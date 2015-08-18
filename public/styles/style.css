@@ -1,0 +1,105 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*///////////////////////*/
+/*Landing Template Style*/
+/*/////////////////////*/
+
+/*Main Title*/
+.main-title {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    border: 1px dashed red;
+    text-align: center;
+}
+/*New Order*/
+.new-order-box {
+    position: absolute;
+    top: 20%;
+    width: 30%;
+    left: 2.5%;
+    height: 25%;
+    border: 1px dashed blue;
+    text-align: center;
+}
+
+    .phone-hardcopy {
+        position: relative;
+        left: 10%;
+        top: 50%;
+        border: 1px dashed orangered;
+        width: 80%;
+
+    }
+
+/*Fill Queue*/
+.fill-queue-box {
+    position: absolute;
+    top: 20%;
+    width: 30%;
+    height: 25%;
+    left: 35%;
+    border: 1px dashed green;
+    text-align: center;
+}
+
+/*Final Verification*/
+.final-verify-box {
+    position: absolute;
+    top: 20%;
+    width: 30%;
+    height: 25%;
+    left: 67.5%;
+    border: 1px dashed black;
+    text-align: center;
+}
+
+/*/////////////////////////*/
+/*New Order Template Style*/
+/*///////////////////////*/
+
+form {
+    vertical-align: top;
+}
+
+.input-box {
+    width: 300px;
+    height:150px;
+    vertical-align: top;
+}
+
+/*//////////////////////////*/
+/*Fill Queue Template Style*/
+/*////////////////////////*/
+
+/*Fixed Queue list*/
+.queue-list {
+    border: 1px dashed red;
+    position: absolute;
+    width: 20%;
+    height: 100%;
+
+}
+    .queue-title {
+        border: 1px dashed green;
+        height: 7%;
+        text-align: center;
+    }
+    
+/*View area*/
+.queue-view {
+    border: 1px dashed blue;
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    left: 20%;
+}

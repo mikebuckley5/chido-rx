@@ -1,0 +1,121 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add New Patient</h3>
+</div>
+<div class="modal-body">
+    <form action="">
+        <div>
+            Patient Name:
+            <input type="text" placeholder="Last Name">
+            <input type="text" placeholder="First Name"> Date of Birth:
+            <input type="date">
+        </div>
+        <div>
+            Address:
+            <input type="text" placeholder="Street Address"> City:
+            <input type="text"> State:
+            <select>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+            </select>
+        </div>
+        <div>
+            Social Security: <input type="number" placeholder="123-45-6789">
+        </div>
+        <div>&nbsp</div>
+        <div>
+            Insurance Info:
+            <div>
+                Plan Name: <input type="text">
+                Plan Phone: <input type="number" placeholder="1-(800)-555-5555">
+            </div>
+            <div>
+                Member Id: <input type="text">
+                Relationship to Cardholder:
+                <select>
+                    <option value="Self">Self</option>
+                    <option value="Spouse">Spouse</option>
+                    <option value="Child">Child</option>
+                </select>
+            </div>
+            <div>
+                Group: <input type="text">
+                BIN#: <input type="text">
+                PCN: <input type="text">
+            </div>
+        </div>
+        <div>&nbsp</div>
+        <div>
+            Drug Allergies: <input type="text">
+        </div>
+            <!--<div>{{ loop and display all allergies saved }}</div>-->
+        <div>
+            Snap Caps?
+            <form action="">
+                <input type="radio" name="snapcap" value="yes">Yes
+                <input type="radio" name="snapcap" value="yes">No
+            </form>
+        </div>
+        <div>
+            Notes: <input type="text" class="input-box">
+        </div>
+        <div>
+            Patient Alerts: <input type="text" class="input-box">
+        </div>
+
+
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">Add Patient</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
