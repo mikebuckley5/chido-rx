@@ -13,7 +13,7 @@ var newOrderSchema = new Schema({
     day_supply: { type: Number, required: true, min: 1 }
 });
 
-module.exports = mongoose.model('neworder', newOrderSchema);
+module.exports = mongoose.model('orders', newOrderSchema);
 
 //For testing with Postman
 /*

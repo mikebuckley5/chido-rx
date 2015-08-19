@@ -5,14 +5,7 @@ app.controller('newOrderCtrl', function ($scope, $modal, newOrderSrvc) {
         var modalInstance = $modal.open({
             animation: true,
             templateUrl: '../templates/newPatientTmpl.html',
-            controller: function ($scope, $modalInstance) {
-                $scope.ok = function () {
-                    $modalInstance.close();
-                };
-                $scope.cancel = function () {
-                    $modalInstance.dismiss('cancel');
-                };
-            },
+            controller: 'newPatientCtrl',
             size: 'lg'
         });
     };

@@ -4,16 +4,14 @@
 <div class="modal-body">
     <form action="">
         <div>
-            Patient Name:
-            <input type="text" placeholder="Last Name">
-            <input type="text" placeholder="First Name"> Date of Birth:
-            <input type="date">
+            Patient Name: <input type="text" placeholder="Last, First" ng-model="patient.name">
+            Date of Birth: <input type="date" ng-model="patient.date_of_birth">
         </div>
         <div>
-            Address:
-            <input type="text" placeholder="Street Address"> City:
-            <input type="text"> State:
-            <select>
+            Address: <input type="text" placeholder="Street Address" ng-model="patient.address.street">
+            City: <input type="text" placeholder="City" ng-model="patient.address.city">
+            State:
+            <select ng-model="patient.address.state">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -66,49 +64,53 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
             </select>
+            Zip: <input type="number" placeholder="12345" ng-model="patient.address.zip">
         </div>
         <div>
-            Social Security: <input type="number" placeholder="123-45-6789">
+            Phone: <input type="text" placeholder="(555)555-5555" ng-model="patient.phone">
+        </div>
+        <div>
+            Social Security: <input type="number" placeholder="123-45-6789" ng-model="patient.social_security">
         </div>
         <div>&nbsp</div>
         <div>
             Insurance Info:
             <div>
-                Plan Name: <input type="text">
-                Plan Phone: <input type="number" placeholder="1-(800)-555-5555">
+                Plan Name: <input type="text" ng-model="patient.insurance.plan_name">
+                Plan Phone: <input type="number" placeholder="1-(800)-555-5555" ng-model="patient.insurance.plan_phone">
             </div>
             <div>
-                Member Id: <input type="text">
+                Member Id: <input type="text" ng-model="patient.insurance.member_id">
                 Relationship to Cardholder:
-                <select>
+                <select ng-model="patient.insurance.relationship">
                     <option value="Self">Self</option>
                     <option value="Spouse">Spouse</option>
                     <option value="Child">Child</option>
                 </select>
             </div>
             <div>
-                Group: <input type="text">
-                BIN#: <input type="text">
-                PCN: <input type="text">
+                Group: <input type="text" ng-model="patient.insurance.group">
+                BIN#: <input type="text" ng-model="patient.insurance.bin">
+                PCN: <input type="text" ng-model="patient.insurance.pcn">
             </div>
         </div>
         <div>&nbsp</div>
         <div>
-            Drug Allergies: <input type="text">
+            Drug Allergies: <input type="text" ng-model="patient.drug_allergies">
         </div>
             <!--<div>{{ loop and display all allergies saved }}</div>-->
         <div>
             Snap Caps?
-            <form action="">
+            <form action="" ng-model="patient.snap_cap">
                 <input type="radio" name="snapcap" value="yes">Yes
-                <input type="radio" name="snapcap" value="yes">No
+                <input type="radio" name="snapcap" value="no">No
             </form>
         </div>
         <div>
-            Notes: <input type="text" class="input-box">
+            Notes: <input type="text" class="input-box" ng-model="patient.notes">
         </div>
         <div>
-            Patient Alerts: <input type="text" class="input-box">
+            Patient Alerts: <input type="text" class="input-box" ng-model="patient.patient_warnings">
         </div>
 
 
@@ -116,6 +118,6 @@
 
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ok()">Add Patient</button>
+    <button class="btn btn-primary" type="button" ng-click="ok(); addNewPatient(patient)">Add Patient</button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
 </div>

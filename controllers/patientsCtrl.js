@@ -1,8 +1,8 @@
-var NewOrder = require('../models/newOrder');
+var Patient = require('../models/patients');
 
 module.exports = {
     find: function (req, res) {
-        NewOrder.find(req.query)
+        Patient.find(req.query)
             .exec(function (err, answer) {
                 if (err) {
                     res.send(err);
@@ -12,8 +12,8 @@ module.exports = {
             });
     },
     save: function (req, res) {
-        var newOrders = new NewOrder(req.body);
-        newOrders.save(function (err, answer) {
+        var newPatient = new Patient(req.body);
+        newPatient.save(function (err, answer) {
             if (err) {
                 res.send(err);
             } else {
