@@ -5,7 +5,7 @@
     <form action="">
         <div>
             Patient Name: <input type="text" placeholder="Last, First" ng-model="patient.name">
-            Date of Birth: <input type="date" ng-model="patient.date_of_birth">
+            Date of Birth: <input type="text" ng-model="patient.date_of_birth">
         </div>
         <div>
             Address: <input type="text" placeholder="Street Address" ng-model="patient.address.street">
@@ -77,7 +77,7 @@
             Insurance Info:
             <div>
                 Plan Name: <input type="text" ng-model="patient.insurance.plan_name">
-                Plan Phone: <input type="number" placeholder="1-(800)-555-5555" ng-model="patient.insurance.plan_phone">
+                Plan Phone: <input type="text" placeholder="1-(800)-555-5555" ng-model="patient.insurance.plan_phone">
             </div>
             <div>
                 Member Id: <input type="text" ng-model="patient.insurance.member_id">
@@ -90,7 +90,7 @@
             </div>
             <div>
                 Group: <input type="text" ng-model="patient.insurance.group">
-                BIN#: <input type="text" ng-model="patient.insurance.bin">
+                BIN#: <input type="number" ng-model="patient.insurance.bin">
                 PCN: <input type="text" ng-model="patient.insurance.pcn">
             </div>
         </div>
@@ -102,8 +102,8 @@
         <div>
             Snap Caps?
             <form action="" ng-model="patient.snap_cap">
-                <input type="radio" name="snapcap" value="yes">Yes
-                <input type="radio" name="snapcap" value="no">No
+                <input type="radio" name="snapcap" value="yes" ng-model="patient.snap_cap">Yes
+                <input type="radio" name="snapcap" value="no" ng-model="patient.snap_cap">No
             </form>
         </div>
         <div>

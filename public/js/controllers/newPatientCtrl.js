@@ -9,7 +9,9 @@ app.controller('newPatientCtrl', function ($scope, $modalInstance, newPatientSrv
     };
 
     $scope.addNewPatient = function (data) {
+        console.log(data);
         newPatientSrvc.addPatient(data).then(function (response) {
+            console.log(response);
             return response;
         });
     };
