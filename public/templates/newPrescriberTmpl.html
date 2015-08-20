@@ -1,17 +1,17 @@
 <div class="modal-header">
-    <h3 class="modal-title">Add New Patient</h3>
+    <h3 class="modal-title">Add New Prescriber</h3>
 </div>
 <div class="modal-body">
     <form action="">
         <div>
-            Patient Name: <input type="text" placeholder="Last, First" ng-model="patient.name">
-            Date of Birth: <input type="text" ng-model="patient.date_of_birth">
+            Prescriber Name: <input type="text" placeholder="Last, First" ng-model="prescriber.name">
         </div>
+        <div>&nbsp</div>
         <div>
-            Address: <input type="text" placeholder="Street Address" ng-model="patient.address.street">
-            City: <input type="text" placeholder="City" ng-model="patient.address.city">
+            Office Address: <input type="text" placeholder="Street Address" ng-model="prescriber.office_address.street">
+            City: <input type="text" placeholder="City" ng-model="prescriber.office_address.city">
             State:
-            <select ng-model="patient.address.state">
+            <select ng-model="prescriber.office_address.state">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -64,60 +64,37 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
             </select>
-            Zip: <input type="number" placeholder="12345" ng-model="patient.address.zip">
+            Zip: <input type="number" placeholder="12345" ng-model="prescriber.office_address.zip">
         </div>
         <div>
-            Phone: <input type="text" placeholder="(555)555-5555" ng-model="patient.phone">
-        </div>
-        <div>
-            Social Security: <input type="text" placeholder="123-45-6789" ng-model="patient.social_security">
+            Office Phone: <input type="text" placeholder="(555)555-5555" ng-model="prescriber.office_phone">
+            Fax: <input type="text" placeholder="(555)555-5555" ng-model="prescriber.fax">
         </div>
         <div>&nbsp</div>
         <div>
-            Insurance Info:
-            <div>
-                Plan Name: <input type="text" ng-model="patient.insurance.plan_name">
-                Plan Phone: <input type="text" placeholder="1-(800)-555-5555" ng-model="patient.insurance.plan_phone">
-            </div>
-            <div>
-                Member Id: <input type="text" ng-model="patient.insurance.member_id">
-                Relationship to Cardholder:
-                <select ng-model="patient.insurance.relationship">
-                    <option value="Self">Self</option>
-                    <option value="Spouse">Spouse</option>
-                    <option value="Child">Child</option>
-                </select>
-            </div>
-            <div>
-                Group: <input type="text" ng-model="patient.insurance.group">
-                BIN#: <input type="number" ng-model="patient.insurance.bin">
-                PCN: <input type="text" ng-model="patient.insurance.pcn">
-            </div>
+            Licenses:<br />
+            NPI: <input type="number" placeholder="Ten Digit Number" ng-model="prescriber.license.npi">
+            DEA: <input type="text" placeholder="AB1234567" ng-model="prescriber.license.dea">
         </div>
         <div>&nbsp</div>
         <div>
-            Drug Allergies: <input type="text" ng-model="patient.drug_allergies">
+            Prescriber Title:
+            <select ng-model="prescriber.prescriber_title">
+                <option value="doctor">Doctor</option>
+                <option value="physician assistant'">Physician Assistant</option>
+                <option value="nurse practitioner">Nurse Practitioner</option>
+                <option value="dentist">Dentist</option>
+                <option value="veterinarian">Veterinarian</option>
+            </select>
         </div>
-            <!--<div>{{ loop and display all allergies saved }}</div>-->
+        <div>&nbsp</div>
         <div>
-            Snap Caps?
-            <form action="" ng-model="patient.snap_cap">
-                <input type="radio" name="snapcap" value="yes" ng-model="patient.snap_cap">Yes
-                <input type="radio" name="snapcap" value="no" ng-model="patient.snap_cap">No
-            </form>
+            Notes: <textarea type="text" class="input-box" cols="30" rows="6" ng-model="prescriber.notes"></textarea>
         </div>
-        <div>
-            Notes: <textarea type="text" class="input-box" cols="30" rows="6" ng-model="patient.notes"></textarea>
-        </div>
-        <div>
-            Patient Alerts: <textarea type="text" class="input-box" cols="30" rows="6" ng-model="patient.patient_warnings"></textarea>
-        </div>
-
-
     </form>
 
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ok(); addNewPatient(patient)">Add Patient</button>
+    <button class="btn btn-primary" type="button" ng-click="ok(); addNewPrescriber(prescriber)">Add Patient</button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
 </div>

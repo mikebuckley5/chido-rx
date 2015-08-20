@@ -1,4 +1,4 @@
-app.controller('newOrderCtrl', function ($scope, $sce, $modal, newOrderSrvc, filterSrvc) {
+app.controller('newOrderCtrl', function ($scope, $modal, newOrderSrvc, filterSrvc) {
 
 /////////////////////////////////
 ////////////MODALS//////////////

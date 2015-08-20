@@ -7,6 +7,7 @@ var express = require('express'),
 //CONTROLLERS
 var ordersCtrl = require('./controllers/ordersCtrl.js');
 var patientsCtrl = require('./controllers/patientsCtrl.js');
+var prescribersCtrl = require('./controllers/prescribersCtrl.js');
 
 //EXPRESS
 var app = express();
@@ -31,6 +32,10 @@ app.post('/api/orders', ordersCtrl.save);
 //Patients Endpoints
 app.get('/api/patients', patientsCtrl.find);
 app.post('/api/patients', patientsCtrl.save);
+
+//Prescribers Endpoints
+app.get('/api/prescribers', prescribersCtrl.find);
+app.post('/api/prescribers', prescribersCtrl.save);
 
 //LISTEN
 app.listen(8555);
