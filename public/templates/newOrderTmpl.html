@@ -2,16 +2,16 @@
 <form action="" class="container-fluid">
    <div>
        Patient Name:
-        <input type="text" placeholder="Last, First" ng-model="order.patient" typeahead="patient.name for patient in names | filter:$viewValue">
+        <input type="text" placeholder="Last, First" ng-model="order.patient" typeahead="patient.name for patient in patientNames | filter:$viewValue">
         &nbsp <button ng-click="openNewPatient()">+</button><br />
     </div>
     <div class>
         Prescriber:
-        <input type="text" placeholder="Last, First" ng-model="order.prescriber">
+        <input type="text" placeholder="Last, First" ng-model="order.prescriber" typeahead="prescriber.name for prescriber in prescriberNames | filter:$viewValue">
         &nbsp <button ng-click="openNewPrescriber()">+</button><br />
    </div>
    <div>
-       Drug: <input type="text" placeholder="Type drug name.." ng-model="order.drug">
+       Drug: <input type="text" placeholder="Type drug name.." ng-model="order.drug" typeahead="drug.name_and_strength for drug in drugNames | filter:$viewValue">
        &nbsp <button ng-click="openNewDrug()">+</button><br />
    </div>
 

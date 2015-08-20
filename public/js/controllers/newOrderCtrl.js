@@ -54,9 +54,27 @@ app.controller('newOrderCtrl', function ($scope, $modal, newOrderSrvc, filterSrv
     var getPatient = function () {
         filterSrvc.getPatients().then(function (response) {
             console.log(response);
-            $scope.names = response;
+            $scope.patientNames = response;
         });
     };
     getPatient();
+
+    //GET LIST OF PRESCRIBERS FOR TYPEAHEAD FILTER
+    var getPrescriber = function () {
+        filterSrvc.getPrescribers().then(function (response) {
+            console.log(response);
+            $scope.prescriberNames = response;
+        });
+    };
+    getPrescriber();
+
+    //GET LIST OF DRUGS FOR TYPEAHEAD FILTER
+    var getDrug = function () {
+        filterSrvc.getDrugs().then(function (response) {
+            console.log(response);
+            $scope.drugNames = response;
+        });
+    };
+    getDrug();
 
 });
