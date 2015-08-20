@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
@@ -6,12 +6,11 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
-<!--<base href="/landing">-->
 <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>');</script>
 <body>
-
     <ui-view></ui-view>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+    <script src="https://code.angularjs.org/1.4.3/angular-sanitize.js"></script>
     <script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.js"></script>
     <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.3.js"></script>
     <script src="./js/app.js"></script>
@@ -20,8 +19,8 @@
     <script src="./js/services/newOrderSrvc.js"></script>
     <script src="../js/controllers/newPatientCtrl.js"></script>
     <script src="./js/services/newPatientSrvc.js"></script>
+    <script src="./js/services/filterSrvc.js"></script>
     <script src="./js/controllers/fillQueueCtrl.js"></script>
     <script src="./js/controllers/finalVerificationCtrl.js"></script>
-
 </body>
 </html>

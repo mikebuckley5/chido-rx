@@ -1,9 +1,17 @@
-<form action="">
-   Patient Name: <input type="text" placeholder="Last, First" ng-model="order.patient">&nbsp <button ng-click="open()">+</button><br />
 
-   Prescriber: <input type="text" placeholder="Last, First" ng-model="order.prescriber"><br />
+<form action="" class="container-fluid">
+   <div>
+       Patient Name:
+        <input type="text" placeholder="Last, First" ng-model="order.patient" typeahead="patient.name for patient in names | filter:$viewValue">
+        &nbsp <button ng-click="openNewPatient()">+</button><br />
+    </div>
+    <div class>
+        Prescriber:
+        <input type="text" placeholder="Last, First" ng-model="order.prescriber">
+        &nbsp <button ng-click="openNewPrescriber()">+</button><br />
+   </div>
 
-   Date Written: <input type="date" ng-model="order.date_written"><br />
+   Date Written: <input type="text" ng-model="order.date_written"><br />
 
    Drug: <input type="text" placeholder="Type drug name.." ng-model="order.drug"><br />
 

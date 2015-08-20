@@ -10,7 +10,7 @@ var newPatientSchema = new Schema({
         zip: {type: Number, required: true }
     },
     date_of_birth: { type: String, required: true },
-    social_security: { type: Number, required: true },
+    social_security: { type: String, required: true },
     phone: { type: String },
     insurance: {
         plan_name: { type: String, required: true },
