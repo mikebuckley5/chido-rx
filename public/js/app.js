@@ -18,13 +18,13 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('fillqueue', {
             url: '/fillqueue',
             templateUrl: '../templates/fillQueueTmpl.html',
-            // controller: 'fillQueueCtrl'
+            controller: 'fillQueueCtrl'
         })
             .state('fillqueueview', {
                 parent: 'fillqueue',
-                url: '/view',
-                templateUrl: '../templates/fillQueueViewTmpl.html'
-                // controller: ''
+                url: '/view/:id',
+                templateUrl: '../templates/fillQueueViewTmpl.html',
+                controller: 'fillQueueCtrl'
             })
         .state('finalverification', {
             url: '/finalverification',

@@ -1,4 +1,4 @@
-app.controller('newOrderCtrl', function ($scope, $modal, newOrderSrvc, filterSrvc) {
+app.controller('newOrderCtrl', function ($scope, $modal, orderSrvc, prescriberSrvc, drugSrvc, patientSrvc) {
 
 /////////////////////////////////
 ////////////MODALS//////////////
@@ -40,7 +40,7 @@ app.controller('newOrderCtrl', function ($scope, $modal, newOrderSrvc, filterSrv
     //ADD NEW ORDER
     $scope.addNewOrder = function (data) {
         console.log(data);
-        newOrderSrvc.createNewOrder(data).then(function (response) {
+        orderSrvc.createNewOrder(data).then(function (response) {
             // console.log(response);
             $scope.order = "";
             $scope.alert = {
@@ -52,7 +52,7 @@ app.controller('newOrderCtrl', function ($scope, $modal, newOrderSrvc, filterSrv
 
     //GET LIST OF PATIENTS FOR TYPEAHEAD FILTER
     var getPatient = function () {
-        filterSrvc.getPatients().then(function (response) {
+        patientSrvc.getPatients().then(function (response) {
             console.log(response);
             $scope.patientNames = response;
         });
@@ -61,7 +61,7 @@ app.controller('newOrderCtrl', function ($scope, $modal, newOrderSrvc, filterSrv
 
     //GET LIST OF PRESCRIBERS FOR TYPEAHEAD FILTER
     var getPrescriber = function () {
-        filterSrvc.getPrescribers().then(function (response) {
+        prescriberSrvc.getPrescribers().then(function (response) {
             console.log(response);
             $scope.prescriberNames = response;
         });
@@ -70,7 +70,7 @@ app.controller('newOrderCtrl', function ($scope, $modal, newOrderSrvc, filterSrv
 
     //GET LIST OF DRUGS FOR TYPEAHEAD FILTER
     var getDrug = function () {
-        filterSrvc.getDrugs().then(function (response) {
+        drugSrvc.getDrugs().then(function (response) {
             console.log(response);
             $scope.drugNames = response;
         });

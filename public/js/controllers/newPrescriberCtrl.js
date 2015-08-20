@@ -1,4 +1,4 @@
-app.controller('newPrescriberCtrl', function($scope, $modalInstance, newPrescriberSrvc) {
+app.controller('newPrescriberCtrl', function($scope, $modalInstance, prescriberSrvc) {
 
     $scope.ok = function () {
         $modalInstance.close();
@@ -10,7 +10,7 @@ app.controller('newPrescriberCtrl', function($scope, $modalInstance, newPrescrib
 
     $scope.addNewPrescriber = function (data) {
         // console.log(data);
-        newPrescriberSrvc.addPrescriber(data).then(function (response) {
+        prescriberSrvc.addPrescriber(data).then(function (response) {
             // console.log(response);
             return response;
         });

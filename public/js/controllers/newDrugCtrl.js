@@ -1,4 +1,4 @@
-app.controller('newDrugCtrl', function ($scope, $modalInstance, newDrugSrvc) {
+app.controller('newDrugCtrl', function ($scope, $modalInstance, drugSrvc) {
 
     $scope.ok = function () {
         $modalInstance.close();
@@ -10,7 +10,7 @@ app.controller('newDrugCtrl', function ($scope, $modalInstance, newDrugSrvc) {
 
     $scope.addNewDrug = function (data) {
         // console.log(data);
-        newDrugSrvc.addDrug(data).then(function (response) {
+        drugSrvc.addDrug(data).then(function (response) {
             // console.log(response);
             return response;
         });
