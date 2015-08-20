@@ -1,0 +1,54 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add New Prescriber</h3>
+</div>
+<div class="modal-body">
+    <form action="">
+        <div>
+            Drug Name: <input type="text" placeholder="Drug name & Strength" ng-model="drug.name_and_strength">
+        </div>
+        <div>&nbsp</div>
+        <div>
+            Form:
+            <select ng-model="drug.form">
+                <option value="tablet">Tablet</option>
+                <option value="capsule">Capsule</option>
+                <option value="injectable">Injectable</option>
+                <option value="liquid">Liquid</option>
+                <option value="patch">Patch</option>
+                <option value="cream">Cream</option>
+                <option value="ointment">Ointment</option>
+            </select>
+        </div>
+        <div>&nbsp</div>
+        <div>
+            NDC: <input type="text" placeholder="12345-6789-01" ng-model="drug.ndc">
+        </div>
+        <div>&nbsp</div>
+        <div>
+            Schedule:
+            <select ng-model="drug.schedule">
+                <option value="non-scheduled drug">Non-Scheduled</option>
+                <option value="2">CII</option>
+                <option value="3">CIII</option>
+                <option value="4">CIV</option>
+                <option value="5">CV</option>
+            </select>
+        </div>
+        <div>&nbsp</div>
+        <div>
+            Package Size: <input type="number" ng-model="drug.package_size">
+        </div>
+        <div>&nbsp</div>
+        <div>
+            Acquisition Price: <input type="text" ng-model="drug.acquisition_price">
+        </div>
+        <div>&nbsp</div>
+        <div>
+            AWP: <input type="text" ng-model="drug.awp">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok(); addNewDrug(drug)">Add Drug</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

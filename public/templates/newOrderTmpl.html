@@ -10,10 +10,12 @@
         <input type="text" placeholder="Last, First" ng-model="order.prescriber">
         &nbsp <button ng-click="openNewPrescriber()">+</button><br />
    </div>
+   <div>
+       Drug: <input type="text" placeholder="Type drug name.." ng-model="order.drug">
+       &nbsp <button ng-click="openNewDrug()">+</button><br />
+   </div>
 
    Date Written: <input type="text" ng-model="order.date_written"><br />
-
-   Drug: <input type="text" placeholder="Type drug name.." ng-model="order.drug"><br />
 
    Directions: <textarea class="direction-input" cols="30" rows="6" ng-model="order.directions"></textarea><br />
 

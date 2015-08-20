@@ -23,6 +23,15 @@ app.controller('newOrderCtrl', function ($scope, $modal, newOrderSrvc, filterSrv
             size: 'lg'
         });
     };
+    //NEW DRUG MODAL
+    $scope.openNewDrug = function () {
+        var modalInstance = $modal.open({
+            animation: true,
+            templateUrl: '../templates/newDrugTmpl.html',
+            controller: 'newDrugCtrl',
+            size: 'lg'
+        });
+    };
 
 ////////////////////////////////
 ///////////////////////////////
