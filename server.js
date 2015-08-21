@@ -28,7 +28,9 @@ app.use(express.static('./public'));
 
 //Orders Endpoints
 app.get('/api/orders', ordersCtrl.find);
+app.get('/api/orders/:id', ordersCtrl.findById);
 app.post('/api/orders', ordersCtrl.save);
+
 
 //Patients Endpoints
 app.get('/api/patients', patientsCtrl.find);

@@ -24,7 +24,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
                 parent: 'fillqueue',
                 url: '/view/:id',
                 templateUrl: '../templates/fillQueueViewTmpl.html',
-                controller: 'fillQueueCtrl'
+                controller: 'fillQueueViewCtrl'
             })
         .state('finalverification', {
             url: '/finalverification',

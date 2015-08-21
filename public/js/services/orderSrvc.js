@@ -19,4 +19,14 @@ app.service('orderSrvc', function ($http) {
                 return response.data;
             });
     };
+
+    this.getOrderById = function (id) {
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:8555/api/orders/' + id
+        })
+            .then(function (response) {
+                return response.data;
+            });
+    };
 });

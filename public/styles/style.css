@@ -87,19 +87,22 @@ form {
     position: absolute;
     width: 20%;
     height: 100%;
-
 }
     .queue-title {
         border: 1px dashed green;
         height: 7%;
         text-align: center;
     }
-    
-/*View area*/
+
+/*View area div*/
 .queue-view {
     border: 1px dashed blue;
     width: 80%;
     height: 100%;
     position: absolute;
     left: 20%;
+}
+/*Back Button in view area*/
+.back-button {
+    float: right;
 }
