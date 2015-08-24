@@ -4,6 +4,7 @@ var RxNumber = require('../models/rxnumber');
 module.exports = {
     find: function (req, res) {
         Order.find(req.query)
+            .populate('patient prescriber drug')
             .exec(function (err, answer) {
                 if (err) {
                     res.send(err);
@@ -14,6 +15,7 @@ module.exports = {
     },
     findById: function (req, res) {
         Order.findById(req.params.id)
+            .populate('patient prescriber drug')
             .exec(function (err, answer) {
                 if (err) {
                     res.send(err);
@@ -25,13 +27,9 @@ module.exports = {
     save: function (req, res) {
         RxNumber.findOne()
             .exec(function (err, answer) {
-                console.log("Answer: " + answer);
-                console.log("Error: " + err);
                 if (answer) {
                     var answerId = answer._id;
                     var answerPlusOne = answer.rx_number + 1;
-                    console.log("Answer Id: " + answerId);
-                    console.log("Answer Plus one: " + answerPlusOne);
                     RxNumber.findByIdAndUpdate({ _id: answerId }, { rx_number: answerPlusOne }, function (error, updatedRx) {
                         if (error) {
                             res.send(error);

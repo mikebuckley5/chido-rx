@@ -9,7 +9,6 @@ var ordersCtrl = require('./controllers/ordersCtrl.js');
 var patientsCtrl = require('./controllers/patientsCtrl.js');
 var prescribersCtrl = require('./controllers/prescribersCtrl.js');
 var drugsCtrl = require('./controllers/drugsCtrl.js');
-var rxNumberCtrl = require('./controllers/rxNumberCtrl.js');
 
 //EXPRESS
 var app = express();
@@ -26,11 +25,6 @@ mongoose.connection.once('open', function () {
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static('./public'));
-
-//Rx Number Enpoints
-// app.get('/api/rxnumber', rxNumberCtrl.find);
-// app.post('/api/rxnumber', rxNumberCtrl.save);
-// app.put('/api/rxnumber/:id', rxNumberCtrl.update);
 
 //Orders Endpoints
 app.get('/api/orders', ordersCtrl.find);

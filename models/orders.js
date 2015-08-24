@@ -1,10 +1,11 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
+
 
 var newOrderSchema = new Schema({
-    patient: { type: String, required: true },
-    prescriber: { type: String, required: true },
-    drug: { type: String, required: true },
+    patient: { type: Schema.Types.ObjectId, ref: 'patients', required: true },
+    prescriber: { type: Schema.Types.ObjectId, ref: 'prescribers', required: true },
+    drug: { type: Schema.Types.ObjectId, ref: 'drugs', required: true },
     date_written: { type: String, required: true },
     directions: { type: String, required: true, maxlength: 300 },
     dispense_qty: { type: Number, required: true, min: 1 },
