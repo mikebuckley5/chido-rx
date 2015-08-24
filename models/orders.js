@@ -10,7 +10,8 @@ var newOrderSchema = new Schema({
     dispense_qty: { type: Number, required: true, min: 1 },
     total_qty: { type: Number, required: true, min: 0 },
     refills: { type: Number },
-    day_supply: { type: Number, required: true, min: 1 }
+    day_supply: { type: Number, required: true, min: 1 },
+    rx_number: { type: Number, required: true }
 });
 
 module.exports = mongoose.model('orders', newOrderSchema);
