@@ -59,6 +59,8 @@ app.controller('newOrderCtrl', function ($scope, $modal, orderSrvc, prescriberSr
                     order.patient = patient._id;
                     order.prescriber = prescriber._id;
                     order.drug = drug._id;
+                    order.filled = false;
+                    order.finalcheck = false;
                     console.log(order);
                     orderSrvc.createNewOrder(order).then(function (response) {
                         $scope.patient = "";

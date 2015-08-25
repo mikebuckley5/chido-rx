@@ -12,7 +12,9 @@ var newOrderSchema = new Schema({
     total_qty: { type: Number, required: true, min: 0 },
     refills: { type: Number },
     day_supply: { type: Number, required: true, min: 1 },
-    rx_number: { type: Number, required: true }
+    rx_number: { type: Number, required: true },
+    filled: { type: Boolean, required: true },
+    finalcheck: { type: Boolean, required: true }
 });
 
 module.exports = mongoose.model('orders', newOrderSchema);
@@ -20,14 +22,16 @@ module.exports = mongoose.model('orders', newOrderSchema);
 //For testing with Postman
 /*
 {
-    "patient": "test",
-    "prescriber": "test",
-    "drug": "test",
+    "patient": "55d4d20a47e4171e6949e37f",
+    "prescriber": "55d63eb7ff2218a736955eaf",
+    "drug": "55d6199bfcce565a1a3e9e71",
     "date_written": "01/01/2000",
     "directions": "test",
     "dispense_qty": 5,
     "total_qty": 5,
     "refills": 5,
-    "day_supply": 5
+    "day_supply": 5,
+    "filled": false,
+    "finalcheck": false
 }
 */

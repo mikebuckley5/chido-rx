@@ -29,7 +29,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('finalverification', {
             url: '/finalverification',
             templateUrl: '../templates/finalVerificationTmpl.html',
-            // controller: 'finalVerificationCtrl'
+            controller: 'finalVerificationCtrl'
         });
 
     // $locationProvider.html5Mode(true);
