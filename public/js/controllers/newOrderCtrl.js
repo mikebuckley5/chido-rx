@@ -32,6 +32,19 @@ app.controller('newOrderCtrl', function ($scope, $modal, orderSrvc, prescriberSr
             size: 'lg'
         });
     };
+    //ORDER ADDED MODAL
+    $scope.orderAddedAlert = function () {
+        var modalInstance = $modal.open({
+            animation: false,
+            templateUrl: '../templates/orderAddedTmpl.html',
+            controller: function ($scope, $modalInstance) {
+                setTimeout(function () {
+                    $modalInstance.close();
+                }, 3000);
+            },
+            size: 'sm'
+        });
+    };
 
     /////////////////////////////////
     ////////ADDING NEW ORDER////////
@@ -52,10 +65,6 @@ app.controller('newOrderCtrl', function ($scope, $modal, orderSrvc, prescriberSr
                         $scope.prescriber = "";
                         $scope.drug = "";
                         $scope.order = "";
-                        $scope.alert = {
-                            type: 'success',
-                            message: 'Order Added!'
-                        };
                     });
                 };
             };

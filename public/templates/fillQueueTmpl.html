@@ -1,6 +1,10 @@
 <div class="queue-list">
     <div class="queue-title">Queue</div>
-    <div ng-repeat="order in orderList"><b><a href="#/fillqueue/view/{{ order._id }}">{{ order.rx_number }}</a></b></div>
+    <div ng-repeat="order in orderList">
+        <a href="#/fillqueue/view/{{ order._id }}">
+            <b>{{ order.rx_number }}</b> -- {{ order.patient.name }}
+        </a>
+    </div>
 </div>
 <div class="queue-view">
     <ui-view></ui-view>

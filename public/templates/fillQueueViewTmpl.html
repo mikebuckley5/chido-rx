@@ -1,9 +1,32 @@
 
 <a href="#/landing"><button class="back-button">Back To Home</button></a>
 <div>
-    {{ theOrder.patient }}
+    <b>PATIENT: </b>{{ order.patient.name }}
+</div>
+<div>&nbsp</div>
+<div>
+    <b>DRUG: </b>{{ order.drug.name_and_strength }}<br />
+    <b>NDC: </b>{{ order.drug.ndc }}
 </div>
 <div>
-    {{ theOrder.drug }}<br />
-    {{ theOrder.ndc }}
+    <b>DISPENSE QTY: </b>{{ order.dispense_qty }}
 </div>
+<div>&nbsp</div>
+<div ng-show="showSnapCap" class="alert-color">
+    <h3><b>PLEASE USE SNAP CAPS!</b></h3>
+</div>
+<div>&nbsp</div>
+<div>
+    <b>Patient Notes:<br /></b>
+    <textarea type="text" class="input-box" cols="30" rows="10"></textarea>
+</div>
+<div>&nbsp</div>
+<div>
+    <input type="text" ng-keypress="checkNdc($event)" placeholder="Type whole NDC..">
+    <button>Verify</button>
+</div>
+<div>&nbsp</div>
+<!--<div>
+    <input type="number" placeholder="Quanity filled..">
+    <button>Submit</button>
+</div>-->
