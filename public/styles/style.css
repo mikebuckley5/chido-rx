@@ -141,3 +141,7 @@ form {
     border-radius: 10px;
     text-align: center;
 }
+
+.initial-warning {
+    color: red;
+}

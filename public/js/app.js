@@ -30,7 +30,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             url: '/finalverification',
             templateUrl: '../templates/finalVerificationTmpl.html',
             controller: 'finalVerificationCtrl'
-        });
-
-    // $locationProvider.html5Mode(true);
+        })
+            .state('finalverificationview', {
+                parent: 'finalverification',
+                url: '/view/:id',
+                templateUrl: '../templates/finalVerificationViewTmpl.html',
+                controller: 'finalVerificationViewCtrl'
+                });
 });

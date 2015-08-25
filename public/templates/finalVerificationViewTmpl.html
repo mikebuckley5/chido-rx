@@ -1,4 +1,3 @@
-
 <a href="#/landing"><button class="back-button">Back To Home</button></a>
 
 <div>
@@ -26,7 +25,7 @@
 
 <div>
     <b>Patient Notes:<br /></b>
-    <textarea type="text" class="input-box" cols="30" rows="10"></textarea>
+    <!--Add notes from previous screen here-->
 </div>
 
 <div>&nbsp</div>
@@ -38,12 +37,7 @@
 
 <div ng-show="verifiedTrue">
     <div class="verified">Verified!</div>
-    <div ng-show="viewInitials">
-        <input type="text" ng-model="initials" placeholder="Type your Initials..">
-        <button ng-click="initialed(initials)">Initial</button>
-        <span ng-show="initialWarning" class="initial-warning" >Must type at least 2 characters!</span>
-    </div>
-    <button ng-show="initialsTyped">Send to Final Verification</button>
+    <button>Send to Final Verification</button>
 </div>
 
 <div class="incorrect" ng-show="verifiedFalse">
