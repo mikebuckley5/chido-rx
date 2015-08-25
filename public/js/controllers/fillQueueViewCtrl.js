@@ -9,6 +9,17 @@ app.controller('fillQueueViewCtrl', function ($scope, $stateParams, orderSrvc) {
             } else {
                 $scope.showSnapCap = false;
             }
+            $scope.verifyField = true;
+            $scope.verify = function (typedNdc) {
+                if (response.drug.ndc === typedNdc) {
+                    $scope.verifiedTrue = true;
+                    $scope.verifyField = false;
+                    $scope.verifiedFalse = false;
+                } else {
+                    $scope.verifiedFalse = true;
+                    $scope.verifiedTrue = false;
+                }
+            };
         });
     };
     getOrderView(patientId);

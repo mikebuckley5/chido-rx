@@ -1,32 +1,48 @@
 
 <a href="#/landing"><button class="back-button">Back To Home</button></a>
+
 <div>
     <b>PATIENT: </b>{{ order.patient.name }}
 </div>
+
 <div>&nbsp</div>
+
 <div>
     <b>DRUG: </b>{{ order.drug.name_and_strength }}<br />
     <b>NDC: </b>{{ order.drug.ndc }}
 </div>
+
 <div>
     <b>DISPENSE QTY: </b>{{ order.dispense_qty }}
 </div>
+
 <div>&nbsp</div>
+
 <div ng-show="showSnapCap" class="alert-color">
     <h3><b>PLEASE USE SNAP CAPS!</b></h3>
 </div>
+
 <div>&nbsp</div>
+
 <div>
     <b>Patient Notes:<br /></b>
     <textarea type="text" class="input-box" cols="30" rows="10"></textarea>
 </div>
+
 <div>&nbsp</div>
-<div>
-    <input type="text" ng-keypress="checkNdc($event)" placeholder="Type whole NDC..">
-    <button>Verify</button>
+
+<div ng-show="verifyField">
+    <input type="text" ng-model="typedNdc" placeholder="Type whole NDC..">
+    <button type="submit" ng-click="verify(typedNdc)">Verify</button>
 </div>
+
+<div ng-show="verifiedTrue">
+    <div class="verified">Verified!</div>
+    <button>Send to Final Verification</button>
+</div>
+
+<div class="incorrect" ng-show="verifiedFalse">
+    Incorrect NDC!
+</div>
+
 <div>&nbsp</div>
-<!--<div>
-    <input type="number" placeholder="Quanity filled..">
-    <button>Submit</button>
-</div>-->

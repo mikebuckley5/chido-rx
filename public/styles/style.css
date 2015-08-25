@@ -123,3 +123,21 @@ form {
     text-align: center;
     border-radius: 10px;
 }
+
+.verified {
+    color: black;
+    background-color: green;
+    height: 100px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.incorrect {
+    color: black;
+    background-color: red;
+    height: 100px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+}
