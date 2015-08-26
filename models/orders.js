@@ -14,6 +14,7 @@ var newOrderSchema = new Schema({
     refills: { type: Number },
     day_supply: { type: Number, required: true, min: 1 },
     rx_number: { type: Number, required: true },
+    patient_notes: { type: String, maxlength: 300 },
     typed_by: { type: String, required: true },
     typed_at: { type: Date },
     filled: { type: Boolean, default: false },

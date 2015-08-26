@@ -1,4 +1,4 @@
-app.controller('fillQueueViewCtrl', function ($scope, $state, $stateParams, orderSrvc) {
+app.controller('fillQueueViewCtrl', function ($scope, $state, $modal, $stateParams, orderSrvc) {
     var orderId = $stateParams.id;
     var getOrderView = function (id) {
         orderSrvc.getOrderById(id).then(function (response) {
@@ -17,20 +17,19 @@ app.controller('fillQueueViewCtrl', function ($scope, $state, $stateParams, orde
                     $scope.verifiedTrue = true;
                     $scope.verifyField = false;
                     $scope.verifiedFalse = false;
-                } else {
+                } else if (response.drug.ndc !== typedNdc) {
                     $scope.verifiedFalse = true;
-                    $scope.verifiedTrue = false;
                 }
-                //Initials field
-                $scope.viewInitials = true;
-                $scope.initialed = function (initials) {
-                    if (initials.length > 1) {
-                        $scope.initialsTyped = true;
-                        $scope.viewInitials = false;
-                    } else {
-                        $scope.initialWarning = true;
-                    }
-                };
+            };
+            //Initials field
+            $scope.viewInitials = true;
+            $scope.initialed = function (initials) {
+                if (initials.length > 1) {
+                    $scope.initialsTyped = true;
+                    $scope.viewInitials = false;
+                } else {
+                    $scope.initialWarning = true;
+                }
             };
         });
     };
@@ -44,4 +43,17 @@ app.controller('fillQueueViewCtrl', function ($scope, $state, $stateParams, orde
             return response;
         });
     };
-});
+    ////////////////////////
+    /////////MODAL/////////
+    //////////////////////
+
+    $scope.editOrder = function () {
+        var modalInstance = $modal.open({
+            animation: true,
+            templateUrl: '../templates/editOrderTmpl.html',
+            controller: 'editOrderCtrl',
+            size: 'lg'
+
+        });
+    };
+ });

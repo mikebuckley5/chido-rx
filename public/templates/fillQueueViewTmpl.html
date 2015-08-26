@@ -1,4 +1,7 @@
 <div>
+    <button ng-click="editOrder()">Edit Order</button>
+</div>
+<div>
     <b>PATIENT: </b>{{ order.patient.name }}
 </div>
 
@@ -15,6 +18,13 @@
 
 <div>&nbsp</div>
 
+<div class="order-info">
+    <b>Typed At: </b>{{ order.typed_at | date: 'short' }}<br />
+    <b>Typed By: </b>{{ order.typed_by }}
+</div>
+
+<div>&nbsp</div>
+
 <div ng-show="showSnapCap" class="alert-color">
     <h3><b>PLEASE USE SNAP CAPS!</b></h3>
 </div>
@@ -23,7 +33,7 @@
 
 <div>
     <b>Patient Notes:<br /></b>
-    <textarea type="text" class="input-box" cols="30" rows="10"></textarea>
+    <textarea type="text" class="input-box" cols="30" rows="10" ng-model="order.patient_notes"></textarea>
 </div>
 
 <div>&nbsp</div>
@@ -45,6 +55,7 @@
     </div>
     <!--Once initials are entered, button will pop up to send to final verification queue-->
     <a href="#/fillqueue"><button ng-show="initialsTyped" ng-click="updateOrder(order)">Send to Final Verification</button></a>
+</div>
 
 <!--If NDC is typed incorrectly then a "incorrect NDC!" will pop up in red, cannot continue until correct-->
 <div class="incorrect" ng-show="verifiedFalse">

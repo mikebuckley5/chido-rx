@@ -117,6 +117,12 @@ form {
     float: right;
 }
 
+/*Info box on order*/
+.order-info {
+    border: 1px solid black;
+    width: 19%;
+}
+
 .alert-color {
     color: black;
     background-color: #f28b0b;
