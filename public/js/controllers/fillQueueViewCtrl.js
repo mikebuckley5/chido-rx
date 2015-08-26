@@ -1,4 +1,4 @@
-app.controller('fillQueueViewCtrl', function ($scope, $stateParams, orderSrvc) {
+app.controller('fillQueueViewCtrl', function ($scope, $state, $stateParams, orderSrvc) {
     var orderId = $stateParams.id;
     var getOrderView = function (id) {
         orderSrvc.getOrderById(id).then(function (response) {
@@ -40,6 +40,7 @@ app.controller('fillQueueViewCtrl', function ($scope, $stateParams, orderSrvc) {
         order.filled_at = new Date();
         order.filled = true;
         orderSrvc.updateOrder(orderId, order).then(function (response) {
+            $state.reload('fillqueue');
             return response;
         });
     };

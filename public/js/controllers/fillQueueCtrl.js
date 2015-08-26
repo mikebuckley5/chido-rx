@@ -1,5 +1,4 @@
 app.controller('fillQueueCtrl', function ($scope, orderSrvc) {
-
     var getOrderList = function () {
         //Get list of orders from database, if they haven't been filled will show.
         orderSrvc.getOrders().then(function (response) {

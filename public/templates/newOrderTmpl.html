@@ -35,15 +35,13 @@
 
    </div>&nbsp</div>
 
-   <div>
-       <a href="#/fillqueue">
-           <button ng-click="addNewOrder(order)">Add Order<br />&<br />Continue to Next Step</button>
-       </a>
-       <a href="">
-           <button ng-click="addNewOrder(order); orderAddedAlert()">Add Order<br />&<br />Type Another Order</button>
-       </a>
-       <a href="#/landing">
-           <button>&nbsp<br />Cancel<br />&nbsp</button>
-       </a>
-   </div>
+    <div>
+        <a href="#/fillqueue"><button ng-click="addNewOrder(order)">Add Order<br />&<br />Continue to Next Step</button></a>
+
+        <button ng-click="addNewOrder(order); orderAddedAlert()">Add Order<br />&<br />Type Another Order</button>
+
+        <a href="#/landing">
+            <button>&nbsp<br />Cancel<br />&nbsp</button>
+        </a>
+    </div>
 </form>

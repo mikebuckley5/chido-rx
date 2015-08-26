@@ -1,4 +1,4 @@
-app.controller('newOrderCtrl', function ($scope, $modal, orderSrvc, prescriberSrvc, drugSrvc, patientSrvc) {
+app.controller('newOrderCtrl', function ($scope, $state, $modal, orderSrvc, prescriberSrvc, drugSrvc, patientSrvc) {
 
     /////////////////////////////////
     ////////////MODALS//////////////
@@ -40,7 +40,8 @@ app.controller('newOrderCtrl', function ($scope, $modal, orderSrvc, prescriberSr
             controller: function ($scope, $modalInstance) {
                 setTimeout(function () {
                     $modalInstance.close();
-                }, 3000);
+                    $state.reload('neworder');
+                }, 2000);
             },
             size: 'sm'
         });

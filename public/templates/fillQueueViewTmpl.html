@@ -1,6 +1,3 @@
-
-<a href="#/landing"><button class="back-button">Back To Home</button></a>
-
 <div>
     <b>PATIENT: </b>{{ order.patient.name }}
 </div>
@@ -47,8 +44,8 @@
         <span ng-show="initialWarning" class="initial-warning" >Must type at least 2 characters!</span>
     </div>
     <!--Once initials are entered, button will pop up to send to final verification queue-->
-    <button ng-show="initialsTyped" ng-click="updateOrder(order)">Send to Final Verification</button>
-</div>
+    <a href="#/fillqueue"><button ng-show="initialsTyped" ng-click="updateOrder(order)">Send to Final Verification</button></a>
+
 <!--If NDC is typed incorrectly then a "incorrect NDC!" will pop up in red, cannot continue until correct-->
 <div class="incorrect" ng-show="verifiedFalse">
     Incorrect NDC!

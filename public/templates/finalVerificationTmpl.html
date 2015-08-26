@@ -1,5 +1,8 @@
 <div class="queue-list">
-    <div class="queue-title">Queue</div>
+    <div class="queue-title">
+        Queue
+        <a href="#/landing"><button class="back-button">Back To Home</button></a>
+    </div>
     <div ng-repeat="order in filledOrderList">
         <a href="#/finalverification/view/{{ order._id }}">
             <b>{{ order.rx_number }}</b> -- {{ order.patient.name }}

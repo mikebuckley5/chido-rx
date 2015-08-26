@@ -78,7 +78,8 @@ form {
 }
 /*Modal Order Added*/
 .modal-style {
-    background-color: #198C19;
+    /*background-color: #198C19;*/
+    text-align: center;
     color: #000c00;
     width: 100%;
     height: 100%;
