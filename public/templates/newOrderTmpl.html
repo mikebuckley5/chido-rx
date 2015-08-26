@@ -15,7 +15,7 @@
        &nbsp <button ng-click="openNewDrug()">+</button><br />
    </div>
 
-   Date Written: <input type="text" ng-model="order.date_written"><br />
+   Date Written: <input type="date" ng-model="order.date_written"><br />
 
    Directions: <textarea class="direction-input" cols="30" rows="6" ng-model="order.directions"></textarea><br />
 
@@ -26,6 +26,15 @@
    Refills: <input type="number" placeholder="0" ng-model="order.refills"><br />
 
    Day Supply: <input type="number" placeholder="0" ng-model="order.day_supply"><br />
+
+   <div>&nbsp</div>
+
+   Due on/at: <input type="datetime-local" ng-model="order.due"><br />
+
+   Typed By: <input type="text" placeholder="Type your initials.." ng-model="order.typed_by"><br />
+
+   </div>&nbsp</div>
+
    <div>
        <a href="#/fillqueue">
            <button ng-click="addNewOrder(order)">Add Order<br />&<br />Continue to Next Step</button>

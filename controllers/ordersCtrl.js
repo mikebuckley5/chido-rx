@@ -24,6 +24,16 @@ module.exports = {
                 }
             });
     },
+    update: function (req, res) {
+        Order.findByIdAndUpdate(req.params.id, req.body)
+            .exec(function (err, answer) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(answer);
+                }
+            });
+    },
     save: function (req, res) {
         RxNumber.findOne()
             .exec(function (err, answer) {

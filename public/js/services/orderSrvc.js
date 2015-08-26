@@ -29,4 +29,14 @@ app.service('orderSrvc', function ($http) {
                 return response.data;
             });
     };
+    this.updateOrder = function (id, data) {
+        return $http({
+            method: 'PUT',
+            url: 'http://localhost:8555/api/orders/' + id,
+            data: data
+        })
+            .then(function (response) {
+                return response.data;
+            });
+    };
 });
