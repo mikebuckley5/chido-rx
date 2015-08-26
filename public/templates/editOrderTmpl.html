@@ -1,24 +1,24 @@
 <div class="modal-header">
-    <h3 class="modal-title">Edit Order</h3>
+    <h3 class="modal-title">Edit Rx #{{ order.rx_number }}</h3>
 </div>
 <div class="modal-body">
     <div>
-        <b>Drug: </b><input type="text">
+        <b>Drug: </b><input type="text" ng-model="order.drug.name_and_strength" typeahead-on-select="drugId($item)" typeahead="drug.name_and_strength for drug in drugs | filter:$viewValue">
     </div>
     <div>
-        <b>Prescriber: </b><input type="text">
+        <b>Prescriber: </b><input type="text" ng-model="order.prescriber.name" typeahead-on-select="prescriberId($item)" typeahead="prescriber.name for prescriber in prescriberNames | filter:$viewValue">
     </div>
     <div>
-        <b>Directions: </b><textarea cols="30" rows="10"></textarea>
+        <b>Directions: </b><textarea class="input-box" cols="30" rows="10" ng-model="order.directions">{{ order.directions }}</textarea>
     </div>
     <div>
-        <b>Total Qty: </b><input type="text">
+        <b>Total Qty: </b><input type="text" value="{{ order.total_qty }}" ng-model="order.total_qty">
     </div>
     <div>
-        <b>Refills: </b><input type="text">
+        <b>Refills: </b><input type="text" value="{{ order.refills }}" ng-model="order.refills">
     </div>
 </div>
 <div class="modal-footer">
-    <button></button>
-    <button></button>
+    <button class="btn btn-primary" ng-click="ok(order)">Submit Changes</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 </div>

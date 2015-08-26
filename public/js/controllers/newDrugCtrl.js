@@ -1,19 +1,15 @@
-app.controller('newDrugCtrl', function ($scope, $modalInstance, drugSrvc) {
+app.controller('newDrugCtrl', function ($scope, $state, $modalInstance, drugSrvc) {
 
-    $scope.ok = function () {
+    $scope.ok = function (drug) {
+        drugSrvc.addDrug(drug).then(function (response) {
+            return response;
+        });
+        $state.reload('neworder');
         $modalInstance.close();
     };
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
-    };
-
-    $scope.addNewDrug = function (data) {
-        // console.log(data);
-        drugSrvc.addDrug(data).then(function (response) {
-            // console.log(response);
-            return response;
-        });
     };
 
 });

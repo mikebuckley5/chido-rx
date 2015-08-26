@@ -1,18 +1,15 @@
-app.controller('newPrescriberCtrl', function($scope, $modalInstance, prescriberSrvc) {
+app.controller('newPrescriberCtrl', function($scope, $state, $modalInstance, prescriberSrvc) {
 
-    $scope.ok = function () {
+    $scope.ok = function (prescriber) {
+        prescriberSrvc.addPrescriber(prescriber).then(function (response) {
+            return response;
+        });
+        $state.reload('neworder');
         $modalInstance.close();
     };
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
-
-    $scope.addNewPrescriber = function (data) {
-        // console.log(data);
-        prescriberSrvc.addPrescriber(data).then(function (response) {
-            // console.log(response);
-            return response;
-        });
-    };
+    
 });
