@@ -3,9 +3,9 @@
         Queue
         <a href="#/landing"><button class="back-button">Back To Home</button></a>
     </div>
-    <div ng-repeat="order in filledOrderList">
+    <div ng-repeat="order in filledOrderList | orderBy: 'due'">
         <a href="#/finalverification/view/{{ order._id }}">
-            <b>{{ order.rx_number }}</b> -- {{ order.patient.name }}
+            <b>#{{ order.rx_number }}</b> -- {{ order.patient.name }} -- <span class="due-warning">{{ order.due | date: 'short' }}</span>
         </a>
     </div>
 </div>

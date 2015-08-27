@@ -1,8 +1,10 @@
 app.controller('fillQueueViewCtrl', function ($scope, $state, $modal, $stateParams, orderSrvc) {
     var id = $stateParams.id;
+    //Get the specific order that will be filled
     (function () {
         orderSrvc.getOrderById(id).then(function (response) {
             $scope.order = response;
+            $scope.order.filled_by = "";
             //Check to see if patient needs snap cap & alert
             var snapCap = response.patient.snap_cap;
             if (snapCap === 'yes') {
@@ -37,7 +39,7 @@ app.controller('fillQueueViewCtrl', function ($scope, $state, $modal, $statePara
     $scope.updateOrder = function (order) {
         order.filled_at = new Date();
         order.filled = true;
-        orderSrvc.updateOrder(orderId, order).then(function (response) {
+        orderSrvc.updateOrder(id, order).then(function (response) {
             $state.reload('fillqueue');
             return response;
         });
@@ -52,7 +54,6 @@ app.controller('fillQueueViewCtrl', function ($scope, $state, $modal, $statePara
             templateUrl: '../templates/editOrderTmpl.html',
             controller: 'editOrderCtrl',
             size: 'lg'
-
         });
     };
  });

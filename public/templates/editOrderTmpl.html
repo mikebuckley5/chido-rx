@@ -1,7 +1,10 @@
 <div class="modal-header">
-    <h3 class="modal-title">Edit Rx #{{ order.rx_number }}</h3>
+    <h3 class="modal-title">Edit Rx #{{ orderResponse.rx_number }}</h3>
 </div>
 <div class="modal-body">
+    <div>
+        <h4><b>{{ orderResponse.patient.name }}</b></h4>
+    </div>
     <div>
         <b>Drug: </b><input type="text" ng-model="orderResponse.drug" typeahead-on-select="drugId($item)" typeahead="drug.name_and_strength for drug in drugs | filter:$viewValue">
     </div>

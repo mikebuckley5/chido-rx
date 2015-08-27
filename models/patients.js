@@ -9,7 +9,7 @@ var newPatientSchema = new Schema({
         state: { type: String, required: true },
         zip: {type: Number, required: true }
     },
-    date_of_birth: { type: String, required: true },
+    date_of_birth: { type: Date, required: true },
     social_security: { type: String, required: true },
     phone: { type: String },
     insurance: {

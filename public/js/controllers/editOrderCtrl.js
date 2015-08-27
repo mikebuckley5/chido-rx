@@ -8,7 +8,9 @@ app.controller('editOrderCtrl', function ($scope, $state, $stateParams, $modalIn
         dispense_qty: 0,
         total_qty: 0,
         day_supply: 0,
-        refills: 0
+        refills: 0,
+        filled: false,
+        filled_by: ""
     };
     //Get current order and assign values to object in case of changes
     (function () {
@@ -39,6 +41,7 @@ app.controller('editOrderCtrl', function ($scope, $state, $stateParams, $modalIn
         });
         $modalInstance.close();
         $state.reload('fillqueueview');
+        $state.reload('finalverification');
     };
     //User can cancel changes
     $scope.cancel = function () {
