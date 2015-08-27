@@ -1,6 +1,6 @@
 app.controller('fillQueueViewCtrl', function ($scope, $state, $modal, $stateParams, orderSrvc) {
-    var orderId = $stateParams.id;
-    var getOrderView = function (id) {
+    var id = $stateParams.id;
+    (function () {
         orderSrvc.getOrderById(id).then(function (response) {
             $scope.order = response;
             //Check to see if patient needs snap cap & alert
@@ -32,8 +32,7 @@ app.controller('fillQueueViewCtrl', function ($scope, $state, $modal, $statePara
                 }
             };
         });
-    };
-    getOrderView(orderId);
+    }());
     //Update order info in database once verified
     $scope.updateOrder = function (order) {
         order.filled_at = new Date();

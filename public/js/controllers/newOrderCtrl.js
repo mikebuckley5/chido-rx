@@ -52,7 +52,6 @@ app.controller('newOrderCtrl', function ($scope, $state, $modal, orderSrvc, pres
     ///////////////////////////////
 
     //ADD NEW ORDER
-
     $scope.patientId = function (patient) {
         $scope.prescriberId = function (prescriber) {
             $scope.drugId = function (drug) {
@@ -80,27 +79,24 @@ app.controller('newOrderCtrl', function ($scope, $state, $modal, orderSrvc, pres
     ///////////////////////////////
 
     //GET LIST OF PATIENTS FOR TYPEAHEAD FILTER
-    var getPatient = function () {
+    (function () {
         patientSrvc.getPatients().then(function (response) {
             $scope.patientNames = response;
         });
-    };
-    getPatient();
+    }());
 
     //GET LIST OF PRESCRIBERS FOR TYPEAHEAD FILTER
-    var getPrescriber = function () {
+    (function () {
         prescriberSrvc.getPrescribers().then(function (response) {
             $scope.prescriberNames = response;
         });
-    };
-    getPrescriber();
+    }());
 
     //GET LIST OF DRUGS FOR TYPEAHEAD FILTER
-    var getDrug = function () {
+    (function () {
         drugSrvc.getDrugs().then(function (response) {
             $scope.drugs = response;
         });
-    };
-    getDrug();
+    }());
 
 });

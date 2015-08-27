@@ -3,22 +3,28 @@
 </div>
 <div class="modal-body">
     <div>
-        <b>Drug: </b><input type="text" ng-model="order.drug.name_and_strength" typeahead-on-select="drugId($item)" typeahead="drug.name_and_strength for drug in drugs | filter:$viewValue">
+        <b>Drug: </b><input type="text" ng-model="orderResponse.drug" typeahead-on-select="drugId($item)" typeahead="drug.name_and_strength for drug in drugs | filter:$viewValue">
     </div>
     <div>
-        <b>Prescriber: </b><input type="text" ng-model="order.prescriber.name" typeahead-on-select="prescriberId($item)" typeahead="prescriber.name for prescriber in prescriberNames | filter:$viewValue">
+        <b>Prescriber: </b><input type="text" ng-model="orderResponse.prescriber" typeahead-on-select="prescriberId($item)" typeahead="prescriber.name for prescriber in prescriberNames | filter:$viewValue">
     </div>
     <div>
-        <b>Directions: </b><textarea class="input-box" cols="30" rows="10" ng-model="order.directions">{{ order.directions }}</textarea>
+        <b>Directions: </b><textarea class="input-box" cols="30" rows="10" ng-model="editedOrder.directions"></textarea>
     </div>
     <div>
-        <b>Total Qty: </b><input type="text" value="{{ order.total_qty }}" ng-model="order.total_qty">
+        <b>Dispense Qty: </b><input type="number" value="{{ editedOrder.dispense_qty }}" ng-model="editedOrder.dispense_qty">
     </div>
     <div>
-        <b>Refills: </b><input type="text" value="{{ order.refills }}" ng-model="order.refills">
+        <b>Total Qty: </b><input type="number" value="{{ editedOrder.total_qty }}" ng-model="editedOrder.total_qty">
+    </div>
+    <div>
+        <b>Day Supply: </b><input type="number" value="{{ editedOrder.day_supply }}" ng-model="editedOrder.day_supply">
+    </div>
+    <div>
+        <b>Refills: </b><input type="number" value="{{ editedOrder.refills }}" ng-model="editedOrder.refills">
     </div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok(order)">Submit Changes</button>
+    <button class="btn btn-primary" ng-click="ok(editedOrder)">Submit Changes</button>
     <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 </div>

@@ -1,6 +1,7 @@
 app.controller('finalVerificationViewCtrl', function ($scope, $stateParams, orderSrvc) {
-    var orderId = $stateParams.id;
-    var getOrderView = function (id) {
+    var id = $stateParams.id;
+    //Get the specific order that will be final checked
+    (function () {
         orderSrvc.getOrderById(id).then(function (response) {
             $scope.order = response;
             var snapCap = response.patient.snap_cap;
@@ -21,6 +22,5 @@ app.controller('finalVerificationViewCtrl', function ($scope, $stateParams, orde
                 }
             };
         });
-    };
-    getOrderView(orderId);
+    } ());
 });

@@ -1,50 +1,66 @@
 app.controller('editOrderCtrl', function ($scope, $state, $stateParams, $modalInstance, orderSrvc, prescriberSrvc, drugSrvc) {
-    var orderId = $stateParams.id;
-
-    $scope.ok = function (order) {
-        $scope.prescriberId = function (prescriber) {
-            $scope.drugId = function (drug) {
-                order.prescriber = prescriber._id;
-                order.drug = drug._id;
-                orderSrvc.updateOrder(orderId, order).then(function (response) {
-                    return response;
-                });
-                $state.reload('fillqueueview');
-                $modalInstance.close();
-            };
-        };
+    var id = $stateParams.id;
+    //Object which will be submitted with edits made on view
+    $scope.editedOrder = {
+        drug: "",
+        prescriber: "",
+        directions: "",
+        dispense_qty: 0,
+        total_qty: 0,
+        day_supply: 0,
+        refills: 0
     };
-
+    //Get current order and assign values to object in case of changes
+    (function () {
+        orderSrvc.getOrderById(id).then(function (response) {
+            $scope.orderResponse = response;
+            $scope.editedOrder.drug = response.drug;
+            $scope.editedOrder.prescriber = response.prescriber;
+            $scope.editedOrder.directions = response.directions;
+            $scope.editedOrder.dispense_qty = response.dispense_qty;
+            $scope.editedOrder.total_qty = response.total_qty;
+            $scope.editedOrder.day_supply = response.day_supply;
+            $scope.editedOrder.refills = response.refills;
+        });
+    } ());
+    //If drug is changed the new ID will be saved to object
+    $scope.drugId = function (drug) {
+        $scope.editedOrder.drug = drug._id;
+    };
+    //If prescriber is changed the new ID will be saved to object
+    $scope.prescriberId = function (prescriber) {
+        $scope.editedOrder.prescriber = prescriber._id;
+    };
+    //Once edits have been made they will update the order in the orders collection with changes
+    $scope.ok = function (editedOrder) {
+        orderSrvc.updateOrder(id, editedOrder).then(function (response) {
+            console.log(response);
+            return response;
+        });
+        $modalInstance.close();
+        $state.reload('fillqueueview');
+    };
+    //User can cancel changes
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
-
-    var getOrder = function () {
-        orderSrvc.getOrderById(orderId).then(function (response) {
-            console.log(response);
-            $scope.order = response;
-        });
-    };
-    getOrder();
 
     /////////////////////////////////
     //////////FOR FILTER////////////
     ///////////////////////////////
 
     //GET LIST OF PRESCRIBERS FOR TYPEAHEAD FILTER
-    var getPrescriber = function () {
+    (function () {
         prescriberSrvc.getPrescribers().then(function (response) {
             $scope.prescriberNames = response;
         });
-    };
-    getPrescriber();
+    } ());
 
     //GET LIST OF DRUGS FOR TYPEAHEAD FILTER
-    var getDrug = function () {
+    (function () {
         drugSrvc.getDrugs().then(function (response) {
             $scope.drugs = response;
         });
-    };
-    getDrug();
+    } ());
 
 });
