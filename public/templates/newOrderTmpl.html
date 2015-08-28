@@ -3,16 +3,16 @@
    <div>
        Patient Name:
         <input type="text" placeholder="Last, First" ng-model="patient" typeahead-on-select="patientId($item)" typeahead="patient.name for patient in patientNames | filter:$viewValue">
-        &nbsp <button ng-click="openNewPatient()">+</button><br />
+        &nbsp <button ng-click="openNewPatient()" class="glyphicon glyphicon-plus-sign"></button><br />
     </div>
     <div class>
         Prescriber:
         <input type="text" placeholder="Last, First" ng-model="prescriber" typeahead-on-select="prescriberId($item)" typeahead="prescriber.name for prescriber in prescriberNames | filter:$viewValue">
-        &nbsp <button ng-click="openNewPrescriber()">+</button><br />
+        &nbsp <button ng-click="openNewPrescriber()" class="glyphicon glyphicon-plus-sign"></button><br />
    </div>
    <div>
        Drug: <input type="text" placeholder="Type drug name.." ng-model="drug" typeahead-on-select="drugId($item)" typeahead="drug.name_and_strength for drug in drugs | filter:$viewValue">
-       &nbsp <button ng-click="openNewDrug()">+</button><br />
+       &nbsp <button ng-click="openNewDrug()" class="glyphicon glyphicon-plus-sign"></button><br />
    </div>
 
    Date Written: <input type="date" ng-model="order.date_written"><br />
