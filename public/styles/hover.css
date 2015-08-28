@@ -441,10 +441,10 @@
 .hvr-bob:hover, .hvr-bob:focus, .hvr-bob:active {
   -webkit-animation-name: hvr-bob-float, hvr-bob;
   animation-name: hvr-bob-float, hvr-bob;
-  -webkit-animation-duration: .3s, 1.5s;
-  animation-duration: .3s, 1.5s;
-  -webkit-animation-delay: 0s, .3s;
-  animation-delay: 0s, .3s;
+  -webkit-animation-duration: 0s, 1.5s;
+  animation-duration: 0s, 1.5s;
+  -webkit-animation-delay: 0s, 0s;
+  animation-delay: 0s, 0s;
   -webkit-animation-timing-function: ease-out, ease-in-out;
   animation-timing-function: ease-out, ease-in-out;
   -webkit-animation-iteration-count: 1, infinite;
@@ -2787,7 +2787,7 @@
   vertical-align: middle;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 1);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -moz-osx-font-smoothing: grayscale;
@@ -2797,7 +2797,7 @@
   transition-property: box-shadow;
 }
 .hvr-box-shadow-outset:hover, .hvr-box-shadow-outset:focus, .hvr-box-shadow-outset:active {
-  box-shadow: 8px 10px 2px rgba(25, 8, 3, 0.6);
+  box-shadow: 0 0 70px rgba(0, 0, 0, 1);
 }
 
 /* Box Shadow Inset */

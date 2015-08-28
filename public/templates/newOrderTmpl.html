@@ -1,5 +1,5 @@
 
-<form action="" class="container-fluid">
+<form class="form-contain">
    <div>
        Patient Name:
         <input type="text" placeholder="Last, First" ng-model="patient" typeahead-on-select="patientId($item)" typeahead="patient.name for patient in patientNames | filter:$viewValue">
