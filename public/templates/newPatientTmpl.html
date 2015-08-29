@@ -3,14 +3,22 @@
 </div>
 <div class="modal-body">
     <form action="">
+        <label><u>Patient Info: </u></label>
         <div>
-            Patient Name: <input type="text" placeholder="Last, First" ng-model="patient.name">
-            Date of Birth: <input type="date" ng-model="patient.date_of_birth">
+            <label>Patient Name: </label>
+            <input type="text" placeholder="Last, First" ng-model="patient.name">
+
+            <label>Date of Birth: </label>
+            <input type="date" ng-model="patient.date_of_birth">
         </div>
         <div>
-            Address: <input type="text" placeholder="Street Address" ng-model="patient.address.street">
-            City: <input type="text" placeholder="City" ng-model="patient.address.city">
-            State:
+            <label>Address: </label>
+            <input type="text" placeholder="Street Address" ng-model="patient.address.street">
+
+            <label>City: </label>
+            <input type="text" placeholder="City" ng-model="patient.address.city">
+
+            <label>State: </label>
             <select ng-model="patient.address.state">
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -64,24 +72,55 @@
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
             </select>
-            Zip: <input type="number" placeholder="12345" ng-model="patient.address.zip">
+            <label>Zip: </label>
+            <input type="number" placeholder="12345" ng-model="patient.address.zip">
         </div>
         <div>
-            Phone: <input type="text" placeholder="(555)555-5555" ng-model="patient.phone">
+            <label>Patient Phone: </label>
+            <input type="text" placeholder="(555)555-5555" ng-model="patient.phone">
         </div>
         <div>
-            Social Security: <input type="text" placeholder="123-45-6789" ng-model="patient.social_security">
+            <label>Social Security: </label>
+            <input type="text" placeholder="123-45-6789" ng-model="patient.social_security">
         </div>
         <div>&nbsp</div>
         <div>
-            Insurance Info:
             <div>
-                Plan Name: <input type="text" ng-model="patient.insurance.plan_name">
-                Plan Phone: <input type="text" placeholder="1-(800)-555-5555" ng-model="patient.insurance.plan_phone">
+                <label>Drug Allergies: </label>
+                <input type="text" ng-model="patient.drug_allergies">
+            </div>
+            <!--<div>{{ loop and display all allergies saved }}</div>-->
+            <form>
+                <label id="radio-label">Snap Cap?</label>
+                <div ng-model="patient.snap_cap" id="radio-div">
+                    <label id="radio-btn-label">Yes</label>
+                    <input type="radio" name="snapcap" value="yes" ng-model="patient.snap_cap" id="radio-btn">
+                    <label id="radio-btn-label">No</label>
+                    <input type="radio" name="snapcap" value="no" ng-model="patient.snap_cap" id="radio-btn">
+                </div>
+            </form>
+            <div>
+                <label>Notes: </label>
+                <textarea type="text" class="input-box" cols="30" rows="6" ng-model="patient.notes"></textarea>
             </div>
             <div>
-                Member Id: <input type="text" ng-model="patient.insurance.member_id">
-                Relationship to Cardholder:
+                <label>Patient Alerts: </label>
+                <textarea type="text" class="input-box" cols="30" rows="6" ng-model="patient.patient_warnings"></textarea>
+                <div>&nbsp</div>
+            </div>
+            <label><u>Insurance Info: </u></label>
+            <div>
+                <label>Plan Name: </label>
+                <input type="text" ng-model="patient.insurance.plan_name">
+
+                <label>Plan Phone: </label>
+                <input type="text" placeholder="1-(800)-555-5555" ng-model="patient.insurance.plan_phone">
+            </div>
+            <div>
+                <label>Member ID: </label>
+                <input type="text" ng-model="patient.insurance.member_id">
+
+                <label>Relationship to Cardholder: </label>
                 <select ng-model="patient.insurance.relationship">
                     <option value="Self">Self</option>
                     <option value="Spouse">Spouse</option>
@@ -89,35 +128,22 @@
                 </select>
             </div>
             <div>
-                Group: <input type="text" ng-model="patient.insurance.group">
-                BIN#: <input type="number" ng-model="patient.insurance.bin">
-                PCN: <input type="text" ng-model="patient.insurance.pcn">
+                <label>Group: </label>
+                <input type="text" ng-model="patient.insurance.group">
+
+                <label>BIN: </label>
+                <input type="number" ng-model="patient.insurance.bin">
+
+                <label>PCN: </label>
+                <input type="text" ng-model="patient.insurance.pcn">
             </div>
         </div>
         <div>&nbsp</div>
-        <div>
-            Drug Allergies: <input type="text" ng-model="patient.drug_allergies">
-        </div>
-            <!--<div>{{ loop and display all allergies saved }}</div>-->
-        <div>
-            Snap Caps?
-            <form action="" ng-model="patient.snap_cap">
-                <input type="radio" name="snapcap" value="yes" ng-model="patient.snap_cap">Yes
-                <input type="radio" name="snapcap" value="no" ng-model="patient.snap_cap">No
-            </form>
-        </div>
-        <div>
-            Notes: <textarea type="text" class="input-box" cols="30" rows="6" ng-model="patient.notes"></textarea>
-        </div>
-        <div>
-            Patient Alerts: <textarea type="text" class="input-box" cols="30" rows="6" ng-model="patient.patient_warnings"></textarea>
-        </div>
-
-
     </form>
-
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ok(patient)">Add Patient</button>
-    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    <div class="button-div">
+        <button type="button" ng-click="ok(patient)" class="add-continue">Add Patient</button>
+        <button type="button" ng-click="cancel()" class="cancel-button">Cancel</button>
+    </div>
 </div>

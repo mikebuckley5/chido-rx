@@ -1,47 +1,94 @@
-
+<div align="center"><img src="../styles/NewOrder.png"></div>
 <form class="form-contain">
-   <div>
-       Patient Name:
-        <input type="text" placeholder="Last, First" ng-model="patient" typeahead-on-select="patientId($item)" typeahead="patient.name for patient in patientNames | filter:$viewValue">
-        &nbsp <button ng-click="openNewPatient()" class="glyphicon glyphicon-plus-sign"></button><br />
+    <div class="content-div">
+        <div>
+            <label for="patient-order">Patient Name:</label>
+            <input type="text" placeholder="Last, First" ng-model="patient" typeahead-on-select="patientId($item)" typeahead="patient.name for patient in patientNames | filter:$viewValue"
+            id="patient-order"> &nbsp
+            <button ng-click="openNewPatient()" class="glyphicon glyphicon-plus-sign" id="patient-order"></button>
+            <br />
+        </div>
+
+        <div>&nbsp</div>
+
+        <div>
+            <label for="prescriber-order">Prescriber:</label>
+            <input type="text" placeholder="Last, First" ng-model="prescriber" typeahead-on-select="prescriberId($item)" typeahead="prescriber.name for prescriber in prescriberNames | filter:$viewValue"
+            id="prescriber-order"> &nbsp
+            <button ng-click="openNewPrescriber()" class="glyphicon glyphicon-plus-sign" id="prescriber-order"></button>
+            <br />
+        </div>
+
+        <div>&nbsp</div>
+
+        <div>
+            <label for="drug-order">Drug:</label>
+            <input type="text" placeholder="Type drug name.." ng-model="drug" typeahead-on-select="drugId($item)" typeahead="drug.name_and_strength for drug in drugs | filter:$viewValue"
+            id="drug-order"> &nbsp
+            <button ng-click="openNewDrug()" class="glyphicon glyphicon-plus-sign" id="drug-order"></button>
+            <br />
+        </div>
+
+        <div>&nbsp</div>
+
+        <label for="date-order">Date Written:</label>
+        <input type="date" ng-model="order.date_written" id="date-order">
+        <br />
+
+        <div>&nbsp</div>
+
+        <label for="directions-order">Directions:</label>
+        <textarea class="direction-input" cols="30" rows="6" ng-model="order.directions" id="directions-order" placeholder="Type directions here.."></textarea>
+        <br />
+
+        <div>&nbsp</div>
+
+        <label for="dispense-order">Dispense Qty:</label>
+        <input type="number" placeholder="0" ng-model="order.dispense_qty" id="dispense-order">
+        <br />
+
+        <label for="total-order">Total Qty:</label>
+        <input type="number" placeholder="0" ng-model="order.total_qty" id="total-order">
+        <br />
+
+        <label for="refills-order">Refills:</label>
+        <input type="number" placeholder="0" ng-model="order.refills" id="refills-order">
+        <br />
+
+        <label for="day-supply-order">Day Supply:</label>
+        <input type="number" placeholder="0" ng-model="order.day_supply" id="day-supply-order">
+        <br />
+
+        <div>&nbsp</div>
+
+        <label for="due-order">Due At:</label>
+        <input type="datetime-local" ng-model="order.due" id="due-order">
+        <br />
+
+        <div>&nbsp</div>
+
+        <label for="typed-by-order">Typed By:</label>
+        <input type="text" placeholder="Type your initials.." ng-model="order.typed_by" id="typed-by-order">
+        <br />
+
+        <div>&nbsp</div>
     </div>
-    <div class>
-        Prescriber:
-        <input type="text" placeholder="Last, First" ng-model="prescriber" typeahead-on-select="prescriberId($item)" typeahead="prescriber.name for prescriber in prescriberNames | filter:$viewValue">
-        &nbsp <button ng-click="openNewPrescriber()" class="glyphicon glyphicon-plus-sign"></button><br />
-   </div>
-   <div>
-       Drug: <input type="text" placeholder="Type drug name.." ng-model="drug" typeahead-on-select="drugId($item)" typeahead="drug.name_and_strength for drug in drugs | filter:$viewValue">
-       &nbsp <button ng-click="openNewDrug()" class="glyphicon glyphicon-plus-sign"></button><br />
-   </div>
 
-   Date Written: <input type="date" ng-model="order.date_written"><br />
+    <div class="button-div">
+        <a href="#/fillqueue">
+            <button ng-click="addNewOrder(order)" class="add-continue">Add Order
+                <br />&
+                <br />Continue</button>
+        </a>
 
-   Directions: <textarea class="direction-input" cols="30" rows="6" ng-model="order.directions"></textarea><br />
-
-   Dispense Qty: <input type="number" placeholder="0" ng-model="order.dispense_qty"><br />
-
-   Total Qty: <input type="number" placeholder="0" ng-model="order.total_qty"><br />
-
-   Refills: <input type="number" placeholder="0" ng-model="order.refills"><br />
-
-   Day Supply: <input type="number" placeholder="0" ng-model="order.day_supply"><br />
-
-   <div>&nbsp</div>
-
-   Due on/at: <input type="datetime-local" ng-model="order.due"><br />
-
-   Typed By: <input type="text" placeholder="Type your initials.." ng-model="order.typed_by"><br />
-
-   </div>&nbsp</div>
-
-    <div>
-        <a href="#/fillqueue"><button ng-click="addNewOrder(order)">Add Order<br />&<br />Continue to Next Step</button></a>
-
-        <button ng-click="addNewOrder(order); orderAddedAlert()">Add Order<br />&<br />Type Another Order</button>
+        <button ng-click="addNewOrder(order); orderAddedAlert()" class="add-another">Add Order
+            <br />&
+            <br />Type Another</button>
 
         <a href="#/landing">
-            <button>&nbsp<br />Cancel<br />&nbsp</button>
+            <button class="cancel-button">&nbsp
+                <br />Cancel
+                <br />&nbsp</button>
         </a>
     </div>
 </form>
