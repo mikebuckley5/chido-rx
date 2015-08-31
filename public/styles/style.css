@@ -99,13 +99,17 @@ background-color: rgba(23, 126, 137, 1);
 }
 
 .new-and-fill {
-    padding: 9% 25% 10% 25%;
+    position: relative;
+    height: 100%;
     width: 100%;
+    padding: 5% 20% 5% 20%;
 }
 
 .final {
-    padding: 4% 20% 8% 20%;
+    position: relative;
+    height: 100%;
     width: 100%;
+    padding: 2.5% 20% 2.5% 20%;
 }
 
 .pill-shadow {
@@ -169,6 +173,10 @@ background-color: rgba(23, 126, 137, 1);
     border: none;
     background-color: rgba(0, 0, 0, 0.7);
     padding-right: 13%;
+}
+
+.modal-backdrop {
+    background-color: white;
 }
 
 #radio-btn-label {
