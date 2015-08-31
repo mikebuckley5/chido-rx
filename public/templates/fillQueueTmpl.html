@@ -3,15 +3,15 @@
         <img src="../styles/queue.png" height="80%">
     </div>
     <div>
-        <div class="column-queue">Rx Number:</div>
-        <div class="column-queue">Patient:</div>
-        <div class="column-queue">Due At:</div>
+        <div class="column-queue rx-number-column">Rx Number:</div>
+        <div class="column-queue patient-column">Patient:</div>
+        <div class="column-queue due-at-column">Due At:</div>
     </div>
     <div ng-repeat="order in orderList | orderBy: 'due'">
         <a href="#/fillqueue/view/{{ order._id }}">
-            <div class="column-queue">{{ order.rx_number }}</div>
-            <div class="column-queue">{{ order.patient.name }}</div>
-            <div class="column-queue due-warning">{{ order.due | date: 'short' }}</div>
+            <div class="column-queue rx-number-column">{{ order.rx_number }}</div>
+            <div class="column-queue patient-column">{{ order.patient.name }}</div>
+            <div class="column-queue due-warning due-at-column">{{ order.due | date: 'short' }}</div>
         </a>
     </div>
     <a href="#/landing">

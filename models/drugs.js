@@ -9,7 +9,8 @@ var newDrugSchema = new Schema({
     package_size: { type: Number, required: true },
     measurement: { type: String },
     acquisition_price: { type: String, required: true },
-    awp: { type: String, required: true }
+    awp: { type: String, required: true },
+    drug_image: { type: String, required: true }
 });
 
 module.exports = mongoose.model('drugs', newDrugSchema);
@@ -23,6 +24,7 @@ module.exports = mongoose.model('drugs', newDrugSchema);
     "package_size": 240,
     "measurement": "mL",
     "acquisition_price": "95.00",
-    "awp": "450.00"
+    "awp": "450.00",
+    "drug_image": "",
 }
 */

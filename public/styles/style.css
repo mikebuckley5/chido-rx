@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(139, 133, 136, 0.8);
+    background-color: #e5e5e5;
     color: black;
 }
 label {
@@ -37,7 +37,7 @@ button:hover {
     background-color: rgba(23, 126, 137, 1);
 }
 ::placeholder {
-   color: rgba(0, 0, 0, 0.8);
+   color: rgba(0, 0, 0, 0.9);
 }
 
 /*///////////////////////*/
@@ -135,6 +135,8 @@ background-color: rgba(23, 126, 137, 1);
     border-radius: 30px;
     padding: 4% 15% 2% 0%;
     margin: 1% -9% 3% 2%;
+    background-color: rgba(242, 242, 242, 0.4);
+    box-shadow: 0 0 10px;
 }
 .form-contain {
     position: absolute;
@@ -143,7 +145,7 @@ background-color: rgba(23, 126, 137, 1);
     padding: 50px 0px 10px 7.5%;
     margin: 17px;
     border-radius: 30px;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.6);
 }
 
 .content-div {
@@ -174,7 +176,7 @@ background-color: rgba(23, 126, 137, 1);
 /*////////////////////////*/
 
 .modal-header {
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.6);
     border-bottom: 1px solid black;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
@@ -182,7 +184,7 @@ background-color: rgba(23, 126, 137, 1);
 
 .modal-body, .modal-footer {
     border: none;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.6);
     padding-right: 13%;
 }
 
@@ -194,6 +196,7 @@ background-color: rgba(23, 126, 137, 1);
 .modal-backdrop {
     background-color: white;
     border-radius: 30px;
+    opacity: 0.8 !important;
 }
 
 .modal-content {
@@ -221,7 +224,7 @@ background-color: rgba(23, 126, 137, 1);
 /*Fixed Queue list*/
 .queue-list {
     position: absolute;
-    width: 25%;
+    width: 35%;
     height: 100%;
     border-right: 1px solid black;
     border-bottom: 1px solid black;
@@ -232,24 +235,34 @@ background-color: rgba(23, 126, 137, 1);
 }
 
 .column-queue {
-    width: 33%;
     float: left;
     text-align: left;
     font-weight: bold;
     border-bottom: 1px solid black;
+    font-size: 18px;
+}
+.rx-number-column {
+    width: 20%;
+}
+.patient-column {
+    width: 40%;
+}
+.due-at-column {
+    width: 40%;
 }
 .page-title-div {
     width: 100%;
     text-align: center;
+    margin-left: 7%;
 }
 .page-title {
     text-align: center;
 }
 
 .order-container {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     border-radius: 30px;
-    margin: 0 0 2% 15%;
+    margin: 0 0 2% 22%;
     padding: 4%;
     width: 70%;
     font-size: 18px;
@@ -258,18 +271,37 @@ background-color: rgba(23, 126, 137, 1);
     border: 2px solid black;
     border-radius: 30px;
     padding: 3%;
+    background-color: rgba(242, 242, 242, 0.4);
+    box-shadow: 0 0 10px;
 }
 .rx-number-label {
     float: left;
 }
 .order-info {
-    border-width: 1px;
+    /*border-width: 1px;
     border-style: dotted;
-    border-color: black;
+    border-color: black;*/
+    box-shadow: 0 0 5px;
+    border-radius: 10px;
     width: 30%;
     padding: 1%;
-    margin-left: 10%;
+    margin-left: 5%;
     float: left;
+}
+.drug-image-div {
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: #e5e5e5;
+    font-weight: bold;
+    padding: 1%;
+    width: 33%;
+    margin-left: 6%;
+    float: left;
+}
+.drug-image {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 .patient-label {
     clear: both;
@@ -300,6 +332,7 @@ background-color: rgba(23, 126, 137, 1);
 }
 .patient-notes-all {
     clear: both;
+    float: left;
 }
 .notes-box {
     height: 200px;
