@@ -1,33 +1,40 @@
 <div class="modal-header">
     <h3 class="modal-title">Edit Rx #{{ orderResponse.rx_number }}</h3>
+    <h4><b>{{ orderResponse.patient.name }}</b></h4>
 </div>
 <div class="modal-body">
     <div>
-        <h4><b>{{ orderResponse.patient.name }}</b></h4>
+        <label>Drug: </label>
+        <input type="text" ng-model="orderResponse.drug" typeahead-on-select="drugId($item)" typeahead="drug.name_and_strength for drug in drugs | filter:$viewValue">
     </div>
     <div>
-        <b>Drug: </b><input type="text" ng-model="orderResponse.drug" typeahead-on-select="drugId($item)" typeahead="drug.name_and_strength for drug in drugs | filter:$viewValue">
+        <label>Prescriber: </label>
+        <input type="text" ng-model="orderResponse.prescriber" typeahead-on-select="prescriberId($item)" typeahead="prescriber.name for prescriber in prescriberNames | filter:$viewValue">
     </div>
     <div>
-        <b>Prescriber: </b><input type="text" ng-model="orderResponse.prescriber" typeahead-on-select="prescriberId($item)" typeahead="prescriber.name for prescriber in prescriberNames | filter:$viewValue">
+        <label>Directions: </label>
+        <textarea class="input-box" cols="30" rows="10" ng-model="editedOrder.directions"></textarea>
     </div>
     <div>
-        <b>Directions: </b><textarea class="input-box" cols="30" rows="10" ng-model="editedOrder.directions"></textarea>
+        <label>Dispense Qty: </label>
+        <input type="number" value="{{ editedOrder.dispense_qty }}" ng-model="editedOrder.dispense_qty">
     </div>
     <div>
-        <b>Dispense Qty: </b><input type="number" value="{{ editedOrder.dispense_qty }}" ng-model="editedOrder.dispense_qty">
+        <label>Total Qty: </label>
+        <input type="number" value="{{ editedOrder.total_qty }}" ng-model="editedOrder.total_qty">
     </div>
     <div>
-        <b>Total Qty: </b><input type="number" value="{{ editedOrder.total_qty }}" ng-model="editedOrder.total_qty">
+        <label>Days Supply: </label>
+        <input type="number" value="{{ editedOrder.day_supply }}" ng-model="editedOrder.day_supply">
     </div>
     <div>
-        <b>Day Supply: </b><input type="number" value="{{ editedOrder.day_supply }}" ng-model="editedOrder.day_supply">
-    </div>
-    <div>
-        <b>Refills: </b><input type="number" value="{{ editedOrder.refills }}" ng-model="editedOrder.refills">
+        <label>Refills: </label>
+        <input type="number" value="{{ editedOrder.refills }}" ng-model="editedOrder.refills">
     </div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok(editedOrder)">Submit Changes</button>
-    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+    <div class="button-div">
+        <button class="add-continue" ng-click="ok(editedOrder)">Submit Changes</button>
+        <button class="cancel-button" ng-click="cancel()">Cancel</button>
+    </div>
 </div>

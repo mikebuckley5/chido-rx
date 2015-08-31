@@ -117,7 +117,7 @@
     <div ng-show="viewInitials">
         <!--You will then be asked to type your initials-->
         <input type="text" ng-model="order.finalcheck_by" placeholder="Type your Initials..">
-        <button ng-click="initialed(order.finalcheck_by)">Initial</button>
+        <button ng-click="initialed(order.finalcheck_by)" class="initial-button">Initial</button>
         <!--Initials must be longer than one character, if not warning will pop up-->
         <span ng-show="initialWarning" class="initial-warning" >Must type at least 2 characters!</span>
     </div>

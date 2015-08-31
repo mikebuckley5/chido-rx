@@ -1,7 +1,6 @@
 body {
     background-color: rgba(139, 133, 136, 0.8);
     color: black;
-    font-weight: bold;
 }
 
 label {
@@ -210,23 +209,82 @@ background-color: rgba(23, 126, 137, 1);
 
 /*Fixed Queue list*/
 .queue-list {
-    border: 1px dashed red;
     position: absolute;
     width: 25%;
     height: 100%;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
 }
     .queue-title {
-        border: 1px dashed green;
         height: 7%;
         text-align: center;
     }
+
+.column-queue {
+    width: 33%;
+    float: left;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+.page-title-div {
+    width: 100%;
+    text-align: center;
+}
+.page-title {
+    text-align: center;
+}
+
+.order-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    margin: 0 0 2% 2%;
+    padding: 4%;
+    width: 96%;
+    font-size: 18px;
+}
+.rx-number-label {
+    float: left;
+}
+.patient-label {
+    clear: both;
+}
+.order-info {
+    border-width: 1px;
+    border-style: dotted;
+    border-color: black;
+    width: 30%;
+    padding: 1%;
+    margin-left: 10%;
+    float: left;
+}
+.verify-content {
+    clear: both;
+}
+.verified-label {
+    text-align: center;
+    font-size: 40px;
+    width: 100%;
+}
+
+.verified {
+    color: black;
+    background-color: green;
+    width: 50%;
+    border-radius: 10px;
+    padding: 1%;
+}
+
 .due-warning {
     color: #b20000;
 }
 
+
+
+/*-------------------------------------------*/
+
 /*View area div*/
 .queue-view {
-    border: 1px dashed blue;
     width: 75%;
     height: 100%;
     position: absolute;
@@ -236,13 +294,6 @@ background-color: rgba(23, 126, 137, 1);
 .back-button {
     float: right;
 }
-
-/*Info box on order*/
-.order-info {
-    border: 1px solid black;
-    width: 19%;
-}
-
 .alert-color {
     color: black;
     background-color: #f28b0b;
@@ -250,25 +301,17 @@ background-color: rgba(23, 126, 137, 1);
     text-align: center;
     border-radius: 10px;
 }
-
-.verified {
-    color: black;
-    background-color: green;
-    height: 100px;
-    width: 300px;
-    border-radius: 10px;
-    text-align: center;
-}
-
 .incorrect {
     color: black;
+    font-size: 25px;
     background-color: red;
-    height: 100px;
-    width: 300px;
+    height: 200px;
+    width: 50%;
     border-radius: 10px;
     text-align: center;
 }
-
 .initial-warning {
     color: red;
+    text-align: left;
+    clear: both;
 }
