@@ -1,14 +1,26 @@
 <div class="queue-list">
     <div class="queue-title">
-        Queue
-        <a href="#/landing"><button class="back-button">Back To Home</button></a>
+        <img src="../styles/queue.png" height="80%">
+    </div>
+    <div>
+        <div class="column-queue">Rx Number:</div>
+        <div class="column-queue">Patient:</div>
+        <div class="column-queue">Due At:</div>
     </div>
     <div ng-repeat="order in filledOrderList | orderBy: 'due'">
         <a href="#/finalverification/view/{{ order._id }}">
-            <b>#{{ order.rx_number }}</b> -- {{ order.patient.name }} -- <span class="due-warning">{{ order.due | date: 'short' }}</span>
+            <div class="column-queue">{{ order.rx_number }}</div>
+            <div class="column-queue">{{ order.patient.name }}</div>
+            <div class="column-queue due-warning">{{ order.due | date: 'short' }}</div>
         </a>
     </div>
+    <a href="#/landing">
+        <button class="back-button">Back To Home</button>
+    </a>
 </div>
 <div class="queue-view">
+    <div class="page-title-div">
+        <img src="../styles/final-verification.png" class="page-title">
+    </div>
     <ui-view></ui-view>
 </div>

@@ -1,66 +1,6 @@
+
+
 <!--<div>
-    <button ng-click="editOrder()">Edit Rx</button>
-</div>
-<div>
-    <b>Rx Number: </b>#{{ order.rx_number }}
-</div>
-<div>&nbsp</div>
-<div>
-    <b>PATIENT: </b>{{ order.patient.name }}
-</div>
-
-<div>&nbsp</div>
-
-<div>
-    <b>DRUG: </b>{{ order.drug.name_and_strength }}<br />
-    <b>NDC: </b>{{ order.drug.ndc }}
-</div>
-
-<div>
-    <b>DISPENSE QTY: </b>{{ order.dispense_qty }}
-</div>
-
-<div>&nbsp</div>
-
-<div class="order-info">
-    <b>Typed At: </b>{{ order.typed_at | date: 'short' }}<br />
-    <b>Typed By: </b>{{ order.typed_by }}<br />
-    <b>Filled At: </b>{{ order.filled_at | date: 'short' }}<br />
-    <b>Filled By: </b>{{ order.filled_by }}<br />
-</div>
-
-<div>&nbsp</div>
-
-<div ng-show="showSnapCap" class="alert-color">
-    <h3><b>PLEASE USE SNAP CAPS!</b></h3>
-</div>
-
-<div>&nbsp</div>
-
-<div>
-    <b>Patient Notes:</b><br />
-    {{ order.patient_notes }}
-</div>
-
-<div>&nbsp</div>
-
-<div ng-show="verifyField">
-    <input type="text" ng-model="typedNdc" placeholder="Type whole NDC..">
-    <button type="submit" ng-click="verify(typedNdc)">Verify</button>
-</div>
-
-<div ng-show="verifiedTrue">
-    <div class="verified">Verified!</div>
-    <button>Complete Prescription</button>
-</div>
-
-<div class="incorrect" ng-show="verifiedFalse">
-    Incorrect NDC!
-</div>
-
-<div>&nbsp</div>-->
-
-<div>
     <button ng-click="editOrder()">Edit Rx</button>
 </div>
 <div>
@@ -106,28 +46,100 @@
 
 <div>&nbsp</div>
 <!--Type NDC used to fill here to check if same as order-->
-<div ng-show="verifyField">
+<!--<div ng-show="verifyField">
     <input type="text" ng-model="typedNdc" placeholder="Type whole NDC..">
     <button type="submit" ng-click="verify(typedNdc)">Verify</button>
-</div>
+</div>-->
 <!--Once NDC has been typed and verify is clicked the following will execute-->
 <!--If typed correctly green "verified!" will pop up-->
-<div ng-show="verifiedTrue">
+<!--<div ng-show="verifiedTrue">
     <div class="verified">Verified!</div>
-    <div ng-show="viewInitials">
+    <div ng-show="viewInitials">-->
         <!--You will then be asked to type your initials-->
-        <input type="text" ng-model="order.finalcheck_by" placeholder="Type your Initials..">
-        <button ng-click="initialed(order.finalcheck_by)" class="initial-button">Initial</button>
+        <!--<input type="text" ng-model="order.finalcheck_by" placeholder="Type your Initials..">
+        <button ng-click="initialed(order.finalcheck_by)" class="initial-button">Initial</button>-->
         <!--Initials must be longer than one character, if not warning will pop up-->
-        <span ng-show="initialWarning" class="initial-warning" >Must type at least 2 characters!</span>
-    </div>
+        <!--<span ng-show="initialWarning" class="initial-warning" >Must type at least 2 characters!</span>
+    </div>-->
     <!--Once initials are entered, button will pop up to send to final verification queue-->
-    <a href="#/fillqueue"><button ng-show="initialsTyped" ng-click="updateOrder(order)">Complete Prescription</button></a>
-</div>
+    <!--<a href="#/fillqueue"><button ng-show="initialsTyped" ng-click="updateOrder(order)">Complete Prescription</button></a>
+</div>-->
 
 <!--If NDC is typed incorrectly then a "incorrect NDC!" will pop up in red, cannot continue until correct-->
-<div class="incorrect" ng-show="verifiedFalse">
+<!--<div class="incorrect" ng-show="verifiedFalse">
     Incorrect NDC!
 </div>
 
-<div>&nbsp</div>
+<div>&nbsp</div>-->
+
+<div class="order-container">
+    <div class="order-content">
+        <div>
+            <span class="rx-number-label"><b><u>Rx Number</u>:</b> #{{ order.rx_number }}</span>
+            <div class="order-info">
+                <b><u>Typed At</u>:</b> {{ order.typed_at | date: 'short' }}<br />
+                <b><u>Typed By</u>:</b> {{ order.typed_by }}<br />
+                <b><u>Filled At</u>: </b>{{ order.filled_at | date: 'short' }}<br />
+                <b><u>Filled By</u>: </b>{{ order.filled_by }}
+            </div>
+        </div>
+
+        <div class="patient-label">
+            <b><u>PATIENT</u>:</b> {{ order.patient.name }}
+        </div>
+
+        <div>&nbsp</div>
+
+        <div class="order-specifics">
+            <b><u>DRUG</u>:</b> {{ order.drug.name_and_strength }}<br />
+            <b><u>NDC</u>:</b> {{ order.drug.ndc }}<br />
+            <b><u>DISPENSE QTY</u>:</b> {{ order.dispense_qty }}
+        </div>
+        <button ng-click="editOrder()" class="edit-button">Edit Rx</button>
+
+        <div ng-show="showSnapCap" class="snapcap-alert">
+            PLEASE USE SNAP CAPS!
+        </div>
+
+        <div class="patient-notes-all">
+            <div class="patient-notes">
+                <div>&nbsp</div>
+                <b><u>Patient Notes</u>:</b>
+            </div>
+            <div class="notes-listed">{{ order.patient_notes }}</div>
+        </div>
+
+        <!--Type NDC used to fill here to check if same as order-->
+        <div class="verify-content">
+            <div ng-show="verifyField">
+                <input type="text" ng-model="typedNdc" placeholder="Type whole NDC.." class="ndc-input">
+                <button type="submit" ng-click="verify(typedNdc)">Verify</button>
+            </div>
+            <!--Once NDC has been typed and verify is clicked the following will execute-->
+            <!--If typed correctly green "verified!" will pop up-->
+            <div ng-show="verifiedTrue">
+                <div class="verified">
+                    <div class="verified-label">Verified!</div>
+                    <div ng-show="viewInitials">
+                        <!--You will then be asked to type your initials-->
+                        <div>
+                            <input type="text" ng-model="order.filled_by" placeholder="Type your Initials..">
+                            <button ng-click="initialed(order.filled_by)">Initial</button>
+                        </div>
+                        <!--Initials must be longer than one character, if not warning will pop up-->
+                    </div>
+                    <div ng-show="initialWarning" class="initial-warning">Must type at least 2 characters!</div>
+                </div>
+                <!--Once initials are entered, button will pop up to send to final verification queue-->
+                <a href="#/fillqueue">
+                    <button ng-show="initialsTyped" ng-click="updateOrder(order)">Complete Prescription</button>
+                </a>
+            </div>
+
+            <!--If NDC is typed incorrectly then a "incorrect NDC!" will pop up in red, cannot continue until correct-->
+            <div class="incorrect" ng-show="verifiedFalse">
+                Incorrect NDC!
+            </div>
+        </div>
+    </div>
+</div>

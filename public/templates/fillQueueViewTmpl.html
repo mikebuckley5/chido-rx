@@ -14,37 +14,28 @@
 
         <div>&nbsp</div>
 
-        <div>
-            <b><u>DRUG</u>:</b> {{ order.drug.name_and_strength }}
-            <br />
-            <b><u>NDC</u>:</b> {{ order.drug.ndc }}
-        </div>
-
-        <div>
+        <div class="order-specifics">
+            <b><u>DRUG</u>:</b> {{ order.drug.name_and_strength }}<br />
+            <b><u>NDC</u>:</b> {{ order.drug.ndc }}<br />
             <b><u>DISPENSE QTY</u>:</b> {{ order.dispense_qty }}
         </div>
+        <button ng-click="editOrder()" class="edit-button">Edit Rx</button>
 
-        <div>
-            <button ng-click="editOrder()">Edit Rx</button>
+        <div ng-show="showSnapCap" class="snapcap-alert">
+            PLEASE USE SNAP CAPS!
         </div>
 
-        <div ng-show="showSnapCap" class="alert-color">
-            <h3>PLEASE USE SNAP CAPS!</h3>
+        <div class="patient-notes-all">
+            <div class="patient-notes">
+                <b><u>Patient Notes</u>:</b>
+            </div>
+                <textarea type="text" class="notes-box" cols="30" rows="10" ng-model="order.patient_notes"></textarea>
         </div>
 
-        <div>&nbsp</div>
-
-        <div>
-            <b><u>Patient Notes</u>:</b>
-            <br />
-            <textarea type="text" class="input-box" cols="30" rows="10" ng-model="order.patient_notes"></textarea>
-        </div>
-
-        <div>&nbsp</div>
         <!--Type NDC used to fill here to check if same as order-->
         <div class="verify-content">
             <div ng-show="verifyField">
-                <input type="text" ng-model="typedNdc" placeholder="Type whole NDC..">
+                <input type="text" ng-model="typedNdc" placeholder="Type whole NDC.." class="ndc-input">
                 <button type="submit" ng-click="verify(typedNdc)">Verify</button>
             </div>
             <!--Once NDC has been typed and verify is clicked the following will execute-->

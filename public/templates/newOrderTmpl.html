@@ -1,6 +1,6 @@
 <div align="center" class="img-responsive"><img src="../styles/NewOrder.png"></div>
 <form class="form-contain">
-    <div class="content-div">
+    <div class="content-div border-neworder">
         <div>
             <label for="patient-order">Patient Name:</label>
             <input type="text" placeholder="Last, First" ng-model="patient" typeahead-on-select="patientId($item)" typeahead="patient.name for patient in patientNames | filter:$viewValue"

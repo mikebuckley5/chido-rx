@@ -39,9 +39,9 @@ app.controller('editOrderCtrl', function ($scope, $state, $stateParams, $modalIn
             console.log(response);
             return response;
         });
-        $modalInstance.close();
         $state.reload('fillqueueview');
         $state.reload('finalverification');
+        $modalInstance.close();
     };
     //User can cancel changes
     $scope.cancel = function () {
