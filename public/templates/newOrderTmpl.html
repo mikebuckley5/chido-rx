@@ -1,4 +1,4 @@
-<div align="center"><img src="../styles/NewOrder.png"></div>
+<div align="center" class="img-responsive"><img src="../styles/NewOrder.png"></div>
 <form class="form-contain">
     <div class="content-div">
         <div>
@@ -72,23 +72,22 @@
         <br />
 
         <div>&nbsp</div>
-    </div>
+        <div class="button-div">
+            <a href="#/fillqueue">
+                <button ng-click="addNewOrder(order)" class="add-continue">Add Order
+                    <br />&
+                    <br />Continue</button>
+            </a>
 
-    <div class="button-div">
-        <a href="#/fillqueue">
-            <button ng-click="addNewOrder(order)" class="add-continue">Add Order
+            <button ng-click="addNewOrder(order); orderAddedAlert()" class="add-another">Add Order
                 <br />&
-                <br />Continue</button>
-        </a>
+                <br />Type Another</button>
 
-        <button ng-click="addNewOrder(order); orderAddedAlert()" class="add-another">Add Order
-            <br />&
-            <br />Type Another</button>
-
-        <a href="#/landing">
-            <button class="cancel-button">&nbsp
-                <br />Cancel
-                <br />&nbsp</button>
-        </a>
+            <a href="#/landing">
+                <button class="cancel-button">&nbsp
+                    <br />Cancel
+                    <br />&nbsp</button>
+            </a>
+        </div>
     </div>
 </form>

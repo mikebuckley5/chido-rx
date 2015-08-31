@@ -4,11 +4,12 @@
 <div class="modal-body">
     <form action="">
         <div>
-            Drug Name: <input type="text" placeholder="Drug name & Strength" ng-model="drug.name_and_strength">
+            <label>Drug Name:</label>
+            <input type="text" placeholder="Drug name & Strength" ng-model="drug.name_and_strength">
         </div>
         <div>&nbsp</div>
         <div>
-            Form:
+            <label>Form:</label>
             <select ng-model="drug.form">
                 <option value="tablet">Tablet</option>
                 <option value="capsule">Capsule</option>
@@ -22,11 +23,12 @@
         </div>
         <div>&nbsp</div>
         <div>
-            NDC: <input type="text" placeholder="12345-6789-01" ng-model="drug.ndc">
+            <label>NDC:</label>
+            <input type="text" placeholder="12345-6789-01" ng-model="drug.ndc">
         </div>
         <div>&nbsp</div>
         <div>
-            Schedule:
+            <label>Schedule:</label>
             <select ng-model="drug.schedule">
                 <option value="non-scheduled drug">Non-Scheduled</option>
                 <option value="2">CII</option>
@@ -37,19 +39,24 @@
         </div>
         <div>&nbsp</div>
         <div>
-            Package Size: <input type="number" ng-model="drug.package_size">
+            <label>Package Size:</label>
+            <input type="number" ng-model="drug.package_size">
         </div>
         <div>&nbsp</div>
         <div>
-            Acquisition Price: <input type="text" ng-model="drug.acquisition_price">
+            <label>Acquisition Price:</label>
+            <input type="text" ng-model="drug.acquisition_price">
         </div>
         <div>&nbsp</div>
         <div>
-            AWP: <input type="text" ng-model="drug.awp">
+            <label>AWP:</label>
+            <input type="text" ng-model="drug.awp">
         </div>
     </form>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="ok(drug)">Add Drug</button>
-    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+    <div class="button-div">
+    <button class="add-continue" type="button" ng-click="ok(drug)">Add Drug</button>
+    <button class="cancel-button" type="button" ng-click="cancel()">Cancel</button>
+    </div>
 </div>
