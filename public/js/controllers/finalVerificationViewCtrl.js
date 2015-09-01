@@ -1,4 +1,4 @@
-app.controller('finalVerificationViewCtrl', function ($scope, $state, $modal, $stateParams, orderSrvc) {
+app.controller('finalVerificationViewCtrl', function ($scope, $state, $modal, $stateParams, orderSrvc, patientSrvc) {
     var id = $stateParams.id;
     //Get the specific order that will be final checked
     (function () {
@@ -33,17 +33,17 @@ app.controller('finalVerificationViewCtrl', function ($scope, $state, $modal, $s
                     $scope.initialWarning = true;
                 }
             };
+            //Update order info in database once verified
+            $scope.updateOrder = function (order) {
+                order.finalcheck_at = new Date();
+                order.finalcheck = true;
+                orderSrvc.updateOrder(id, order).then(function (response) {
+                    $state.reload('finalverification');
+                    return response;
+                });
+            };
         });
     } ());
-    //Update order info in database once verified
-    $scope.updateOrder = function (order) {
-        order.finalcheck_at = new Date();
-        order.finalcheck = true;
-        orderSrvc.updateOrder(id, order).then(function (response) {
-            $state.reload('finalverification');
-            return response;
-        });
-    };
     ////////////////////////
     /////////MODAL/////////
     //////////////////////

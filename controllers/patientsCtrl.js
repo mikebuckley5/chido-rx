@@ -3,6 +3,7 @@ var Patient = require('../models/patients');
 module.exports = {
     find: function (req, res) {
         Patient.find(req.query)
+            .populate('orders')
             .exec(function (err, answer) {
                 if (err) {
                     res.send(err);
@@ -20,5 +21,10 @@ module.exports = {
                 res.send(answer);
             }
         });
+    },
+    update: function (req, res) {
+        Patient.findById(req.params.id, function (err, found) {
+
+        })
     }
 };

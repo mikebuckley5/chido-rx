@@ -60,13 +60,21 @@ app.controller('newOrderCtrl', function ($scope, $state, $modal, orderSrvc, pres
                     order.prescriber = prescriber._id;
                     order.drug = drug._id;
                     order.typed_at = new Date();
-                    console.log(order);
                     orderSrvc.createNewOrder(order).then(function (response) {
-                        console.log(response);
                         $scope.patient = "";
                         $scope.prescriber = "";
                         $scope.drug = "";
                         $scope.order = "";
+                        $state.reload('neworder');
+                        var patientId = order.patient;
+                        var patientOrder = {
+                            orders: response.data._id
+                        };
+                        console.log(patient);
+                        patientSrvc.updatePatient(patientId, patientOrder).then(function (response) {
+                            console.log("Updated Patient: ", response);
+                            return response;
+                        });
                     });
                 };
             };

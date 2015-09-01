@@ -13,18 +13,21 @@ var newPatientSchema = new Schema({
     social_security: { type: String, required: true },
     phone: { type: String },
     insurance: {
-        plan_name: { type: String, required: true },
+        plan_name: { type: String },
         plan_phone: { type: String },
-        member_id: { type: String, required: true },
-        relationship: { type: String, required: true },
-        group: { type: String, required: true },
-        bin: { type: Number, required: true },
+        member_id: { type: String },
+        relationship: { type: String },
+        group: { type: String },
+        bin: { type: Number },
         pcn: { type: String }
     },
     drug_allergies: { type: String },
     snap_cap: { type: String },
     notes: { type: String },
-    patient_warnings: { type: String }
+    patient_warnings: { type: String },
+    orders: [
+        { type: Schema.Types.ObjectId, ref: 'orders' }
+    ]
 });
 
 module.exports = mongoose.model('patients', newPatientSchema);
