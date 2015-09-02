@@ -1,7 +1,33 @@
 <div class="patient-search-view">
-<div class="back-button">
+    <div class="patient-results-border">
+        <div class="patient-results-view">
+            <div class="patient-demographics">
+                <u><h4>Patient Demographics</u>:</h4>
+                <b>Name:</b> &nbsp {{ patientInfo.name }}<br />
+                <b>Date of Birth:</b> &nbsp {{ patientInfo.date_of_birth | date: 'longDate' }}<br />
+                <b>SSN:</b> &nbsp {{ patientInfo.social_security }}<br />
+                <b>Address:</b> &nbsp {{ patientInfo.address.street }}  &nbsp&nbsp&nbsp <b>City:</b> &nbsp {{ patientInfo.address.city }}  &nbsp&nbsp&nbsp <b>State:</b>  &nbsp {{ patientInfo.address.state }}  &nbsp&nbsp&nbsp <b>Zip:</b> &nbsp {{ patientInfo.address.zip }}<br />
+                <b>Phone:</b> &nbsp {{ patientInfo.phone }}<br />
+                <b>Drug Allergies:</b> &nbsp {{ patientInfo.drug_allergies }}<br />
+                <b>Snap Caps Required?:</b> &nbsp {{ patientInfo.snap_cap | uppercase }}<br />
+            </div>
+            <div class="patient-insurance">
+                <h4><u>Insurance</u>:</h4>
+                <b>Plan Name:</b> &nbsp {{ patientInfo.insurance.plan_name }}<br />
+                <b>Member ID:</b> &nbsp {{ patientInfo.insurance.member_id }}<br />
+                <b>Group:</b> &nbsp {{ patientInfo.insurance.group }}<br />
+                <b>Plan Phone:</b> &nbsp {{ patientInfo.insurance.plan_phone }}<br />
+                <b>Relation to Cardholder:</b> &nbsp {{ patientInfo.insurance.relationship }}<br />
+                <b>BIN:</b> &nbsp {{ patientInfo.insurance.bin }} &nbsp&nbsp&nbsp <b>PCN:</b> &nbsp {{ patientInfo.insurance.pcn }}<br />
+            </div>
+            <div class="patient-order-history">
+
+            </div>
+        </div>
+    </div>
+    <!--<div class="back-button">
     <a href="#/landing"><button>Back to Home</button></a>
-</div>
+</div>-->
 
 
 

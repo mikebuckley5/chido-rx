@@ -29,6 +29,7 @@ app.use(express.static('./public'));
 //Orders Endpoints
 app.get('/api/orders', ordersCtrl.find);
 app.get('/api/orders/:id', ordersCtrl.findById);
+app.get('/api/orders/bypatient/:patientId', ordersCtrl.findByPatientId);
 app.post('/api/orders', ordersCtrl.save);
 app.put('/api/orders/:id', ordersCtrl.update);
 

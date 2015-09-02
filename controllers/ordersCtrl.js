@@ -25,6 +25,17 @@ module.exports = {
                 }
             });
     },
+    findByPatientId: function (req, res) {
+        Order.find({ patient: { $eq: req.params.patientId } })
+            .populate('patient prescriber drug')
+            .exec(function (err, answer) {
+                if (err) {
+                    res.send(err);
+                } else {
+                    res.send(answer);
+                }
+            });
+    },
     update: function (req, res) {
         Order.findByIdAndUpdate(req.params.id, req.body)
             .exec(function (err, answer) {

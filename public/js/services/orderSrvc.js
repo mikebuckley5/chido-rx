@@ -29,6 +29,16 @@ app.service('orderSrvc', function ($http) {
                 return response.data;
             });
     };
+    this.getOrdersByPatientId = function (id) {
+        return $http({
+            method: 'GET',
+            url: 'http://localhost:8555/api/orders/bypatient/' + id
+        })
+            .then(function (response) {
+                console.log("Here are your patient's orders: ", response.data);
+                return response.data;
+            });
+    };
     this.updateOrder = function (id, data) {
         return $http({
             method: 'PUT',
