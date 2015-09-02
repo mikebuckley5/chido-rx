@@ -35,7 +35,6 @@ app.service('orderSrvc', function ($http) {
             url: 'http://localhost:8555/api/orders/bypatient/' + id
         })
             .then(function (response) {
-                console.log("Here are your patient's orders: ", response.data);
                 return response.data;
             });
     };

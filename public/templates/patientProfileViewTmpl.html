@@ -3,25 +3,60 @@
         <div class="patient-results-view">
             <div class="patient-demographics">
                 <u><h4>Patient Demographics</u>:</h4>
-                <b>Name:</b> &nbsp {{ patientInfo.name }}<br />
-                <b>Date of Birth:</b> &nbsp {{ patientInfo.date_of_birth | date: 'longDate' }}<br />
-                <b>SSN:</b> &nbsp {{ patientInfo.social_security }}<br />
-                <b>Address:</b> &nbsp {{ patientInfo.address.street }}  &nbsp&nbsp&nbsp <b>City:</b> &nbsp {{ patientInfo.address.city }}  &nbsp&nbsp&nbsp <b>State:</b>  &nbsp {{ patientInfo.address.state }}  &nbsp&nbsp&nbsp <b>Zip:</b> &nbsp {{ patientInfo.address.zip }}<br />
-                <b>Phone:</b> &nbsp {{ patientInfo.phone }}<br />
-                <b>Drug Allergies:</b> &nbsp {{ patientInfo.drug_allergies }}<br />
-                <b>Snap Caps Required?:</b> &nbsp {{ patientInfo.snap_cap | uppercase }}<br />
+                <span><b>Name:</b> &nbsp {{ patientInfo.name }}</span>
+                <br />
+                <span><b>Date of Birth:</b> &nbsp {{ patientInfo.date_of_birth | date: 'longDate' }}</span>
+                <br />
+                <span><b>SSN:</b> &nbsp {{ patientInfo.social_security }}</span>
+                <br />
+                <span><b>Address:</b> &nbsp {{ patientInfo.address.street }}</span> &nbsp&nbsp&nbsp
+                <span><b>City:</b> &nbsp {{ patientInfo.address.city }}</span> &nbsp&nbsp&nbsp
+                <span><b>State:</b> &nbsp {{ patientInfo.address.state }}</span> &nbsp&nbsp&nbsp
+                <span><b>Zip:</b> &nbsp {{ patientInfo.address.zip }}</span>
+                <br />
+                <span><b>Phone:</b> &nbsp {{ patientInfo.phone }}</span>
+                <br />
+                <span><b>Drug Allergies:</b> &nbsp {{ patientInfo.drug_allergies }}</span>
+                <br />
+                <span><b>Snap Caps Required?:</b> &nbsp {{ patientInfo.snap_cap | uppercase }}</span>
+                <br />
             </div>
             <div class="patient-insurance">
                 <h4><u>Insurance</u>:</h4>
-                <b>Plan Name:</b> &nbsp {{ patientInfo.insurance.plan_name }}<br />
-                <b>Member ID:</b> &nbsp {{ patientInfo.insurance.member_id }}<br />
-                <b>Group:</b> &nbsp {{ patientInfo.insurance.group }}<br />
-                <b>Plan Phone:</b> &nbsp {{ patientInfo.insurance.plan_phone }}<br />
-                <b>Relation to Cardholder:</b> &nbsp {{ patientInfo.insurance.relationship }}<br />
-                <b>BIN:</b> &nbsp {{ patientInfo.insurance.bin }} &nbsp&nbsp&nbsp <b>PCN:</b> &nbsp {{ patientInfo.insurance.pcn }}<br />
+                <span><b>Plan Name:</b> &nbsp {{ patientInfo.insurance.plan_name }}</span>
+                <br />
+                <span><b>Member ID:</b> &nbsp {{ patientInfo.insurance.member_id }}</span>
+                <br />
+                <span><b>Group:</b> &nbsp {{ patientInfo.insurance.group }}</span>
+                <br />
+                <span><b>Plan Phone:</b> &nbsp {{ patientInfo.insurance.plan_phone }}</span>
+                <br />
+                <span><b>Relation to Cardholder:</b> &nbsp {{ patientInfo.insurance.relationship }}</span>
+                <br />
+                <span><b>BIN:</b> &nbsp {{ patientInfo.insurance.bin }}</span> &nbsp&nbsp&nbsp
+                <span><b>PCN:</b> &nbsp {{ patientInfo.insurance.pcn }}</span>
+                <br />
             </div>
             <div class="patient-order-history">
-
+                <div class="order-history-title"><u>Order History</u></div>
+                <div ng-repeat="order in patientOrders" class="order-history-content">
+                    <span class="rx-number"><b>Rx#:</b> {{ order.rx_number }}</span> &nbsp&nbsp&nbsp
+                    <span ng-show="dateFilled"><b>Date Filled:</b> &nbsp {{ order.finalcheck_at | date: 'longDate' }}</span>
+                    <span ng-show="beingChecked"><b>Status:</b> &nbsp <span  class="in-process">Being Checked..</span></span>
+                    <span ng-show="beingFilled"><b>Status:</b> &nbsp <span class="in-process">Being Filled..</span></span>
+                    <br />
+                    <br />
+                    <span><b>Drug:</b> &nbsp {{ order.drug.name_and_strength }}</span> &nbsp&nbsp&nbsp
+                    <span><b>Written Qty:</b> &nbsp {{ order.total_qty }}</span> &nbsp&nbsp&nbsp
+                    <span><b>Written:</b> &nbsp {{ order.date_written | date: 'longDate' }}</span> &nbsp&nbsp&nbsp
+                    <span><b>Prescribed By:</b> &nbsp {{ order.prescriber.name }}</span>
+                    <br />
+                    <span><b>Directions:</b> &nbsp {{ order.directions }}</span> &nbsp&nbsp&nbsp
+                    <br />
+                    <span><b>Qty Dispensed:</b> &nbsp {{ order.dispense_qty }}</span> &nbsp&nbsp&nbsp
+                    <span><b>Day Supply:</b> &nbsp {{ order.day_supply }}</span> &nbsp&nbsp&nbsp
+                    <br />
+                </div>
             </div>
         </div>
     </div>
