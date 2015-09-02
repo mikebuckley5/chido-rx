@@ -8,10 +8,6 @@
                 <b><u>Filled At</u>: </b>{{ order.filled_at | date: 'short' }}<br />
                 <b><u>Filled By</u>: </b>{{ order.filled_by }}
             </span>
-            <div class="drug-image-div">
-                Drug Image/Identifier:
-                <img src="{{ order.drug.drug_image }}" class="drug-image">
-            </div>
         </div>
 
         <div class="patient-label">
@@ -26,8 +22,14 @@
             <b><u>NDC</u>:</b> {{ order.drug.ndc }}
             <br />
             <b><u>DISPENSE QTY</u>:</b> {{ order.dispense_qty }}
+            <br />
+            <b><u>Drug Allergies</u>:</b> {{ order.patient.drug_allergies }}
         </div>
         <button ng-click="editOrder()" class="edit-button">Edit Rx</button>
+        <div class="drug-image-div">
+            Drug Image/Identifier:
+            <img src="{{ order.drug.drug_image }}" class="drug-image">
+        </div>
 
 
         <div ng-show="showSnapCap" class="snapcap-alert">

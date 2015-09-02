@@ -1,5 +1,6 @@
 var Order = require('../models/orders');
 var RxNumber = require('../models/rxnumber');
+var Patient = require('../models/patients');
 
 module.exports = {
     find: function (req, res) {
@@ -44,16 +45,34 @@ module.exports = {
                         if (error) {
                             res.send(error);
                         } else {
-                            res.send(updatedRx);
-                        }
-                    });
-                    req.body.rx_number = answer.rx_number + 1;
-                    var newOrders = new Order(req.body);
-                    newOrders.save(function (error, updatedOrder) {
-                        if (error) {
-                            res.send(error);
-                        } else {
-                            res.send(updatedOrder);
+                            req.body.rx_number = updatedRx.rx_number + 1;
+                            var newOrders = new Order(req.body);
+                            newOrders.save(function (error, updatedOrder) {
+                                if (error) {
+                                    res.send(error);
+                                } else {
+                                    var patientId = updatedOrder.patient;
+                                    Patient.findById(patientId, function (err1, patient) {
+                                        if (err1) {
+                                            res.send(err1);
+                                        } else {
+                                            var patientOrders = patient.orders;
+                                            patientOrders.push(updatedOrder._id);
+                                            var patientOrdersUpdated = {
+                                                orders: patientOrders
+                                            };
+                                            Patient.findByIdAndUpdate(patient._id, patientOrdersUpdated)
+                                                .exec(function (error1, answer1) {
+                                                    if (error1) {
+                                                        res.send(error1);
+                                                    } else {
+                                                        res.send(answer1);
+                                                    }
+                                                });
+                                        }
+                                    });
+                                }
+                            });
                         }
                     });
                 } else {
@@ -65,16 +84,16 @@ module.exports = {
                         if (error) {
                             res.send(error);
                         } else {
+                            req.body.rx_number = 1000;
+                            var newOrder = new Order(req.body);
+                            newOrder.save(function (error, updatedOrder) {
+                                if (err) {
+                                    res.send(error);
+                                } else {
+                                    res.send(updatedOrder);
+                                }
+                            });
                             res.send(newRxNumber);
-                        }
-                    });
-                    req.body.rx_number = 1000;
-                    var newOrder = new Order(req.body);
-                    newOrder.save(function (error, updatedOrder) {
-                        if (err) {
-                            res.send(error);
-                        } else {
-                            res.send(updatedOrder);
                         }
                     });
                 }

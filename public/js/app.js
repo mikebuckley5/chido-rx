@@ -8,8 +8,18 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('landing', {
             url: '/landing',
             templateUrl: '../templates/landingTmpl.html',
-            // controller: landingCtrl
         })
+        .state('patientprofile', {
+            url: '/patientprofile',
+            templateUrl: '../templates/patientProfileTmpl.html',
+            controller: 'patientProfileCtrl'
+        })
+            .state('patientprofileview', {
+                parent: 'patientprofile',
+                url: '/view/:id',
+                templateUrl: '../templates/patientProfileViewTmpl.html',
+                controller: 'patientProfileViewCtrl'
+                })
         .state('neworder', {
             url: '/neworder',
             templateUrl: '../templates/newOrderTmpl.html',

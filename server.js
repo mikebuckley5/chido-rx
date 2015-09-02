@@ -35,8 +35,8 @@ app.put('/api/orders/:id', ordersCtrl.update);
 
 //Patients Endpoints
 app.get('/api/patients', patientsCtrl.find);
+app.get('/api/patients/:id', patientsCtrl.findById);
 app.post('/api/patients', patientsCtrl.save);
-app.put('/api/patients/:id', patientsCtrl.update);
 
 //Prescribers Endpoints
 app.get('/api/prescribers', prescribersCtrl.find);

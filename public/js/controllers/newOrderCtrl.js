@@ -66,15 +66,6 @@ app.controller('newOrderCtrl', function ($scope, $state, $modal, orderSrvc, pres
                         $scope.drug = "";
                         $scope.order = "";
                         $state.reload('neworder');
-                        var patientId = order.patient;
-                        var patientOrder = {
-                            orders: response.data._id
-                        };
-                        console.log(patient);
-                        patientSrvc.updatePatient(patientId, patientOrder).then(function (response) {
-                            console.log("Updated Patient: ", response);
-                            return response;
-                        });
                     });
                 };
             };
@@ -106,5 +97,4 @@ app.controller('newOrderCtrl', function ($scope, $state, $modal, orderSrvc, pres
             $scope.drugs = response;
         });
     }());
-
 });

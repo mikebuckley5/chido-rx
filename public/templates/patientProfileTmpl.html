@@ -1,0 +1,7 @@
+<div class="patient-search">
+    <label class="search-label">Search for Patient:</label>
+    <input type="text" class="search-input" placeholder="Last, First" ng-model="patient" typeahead-on-select="patientProfile($item)" typeahead="patient.name for patient in patientNames | filter:$viewValue">
+    <a href="#/patientprofile/view/{{ patientId }}"><button ng-click="">Go</button></a>
+</div>
+
+<ui-view></ui-view>
