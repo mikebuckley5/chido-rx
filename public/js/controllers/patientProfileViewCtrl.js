@@ -8,18 +8,19 @@ app.controller('patientProfileViewCtrl', function ($scope, patientSrvc, orderSrv
                     console.log("Here are your patient's orders: ", response);
                     $scope.patientOrders = response;
                     for (var i = 0; i < $scope.patientOrders.length; i++) {
-                        if ($scope.patientOrders[i]["filled"] && $scope.patientOrders[i]["finalcheck"]) {
-                            $scope.dateFilled = true;
-                            $scope.beingChecked = false;
-                            $scope.beingFilled = false;
-                        } else if ($scope.patientOrders[i]["filled"]) {
-                            $scope.dateFilled = false;
-                            $scope.beingChecked = true;
-                            $scope.beingFilled = false;
+                        console.log("Here is the specific object: ", $scope.patientOrders[i]["finalcheck"]);
+                        if ($scope.patientOrders[i]["finalcheck"] === true) {
+                            $scope.patientOrders[i]["dateFilled"] = true;
+                            $scope.patientOrders[i]["beingChecked"] = false;
+                            $scope.patientOrders[i]["beingFilled"] = false;
+                        } else if ($scope.patientOrders[i]["filled"] === true) {
+                            $scope.patientOrders[i]["dateFilled"] = false;
+                            $scope.patientOrders[i]["beingChecked"] = true;
+                            $scope.patientOrders[i]["beingFilled"] = false;
                         } else {
-                            $scope.dateFilled = false;
-                            $scope.beingChecked = false;
-                            $scope.beingFilled = true;
+                            $scope.patientOrders[i]["dateFilled"] = false;
+                            $scope.patientOrders[i]["beingChecked"] = false;
+                            $scope.patientOrders[i]["beingFilled"] = true;
                         }
                     }
                 });

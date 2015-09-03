@@ -1,49 +1,52 @@
 <div class="order-container">
     <div class="order-content">
-        <div>
-            <span class="rx-number-label"><b><u>Rx Number</u>:</b> #{{ order.rx_number }}</span>
-            <span class="order-info">
+
+        <div class="div1">
+            <div class="rx-number-label"><b><u>Rx Number</u>:</b> #{{ order.rx_number }}</div>
+            <div class="who-did-what-label">
                 <b><u>Typed At</u>:</b> {{ order.typed_at | date: 'short' }}<br />
                 <b><u>Typed By</u>:</b> {{ order.typed_by }}<br />
                 <b><u>Filled At</u>: </b>{{ order.filled_at | date: 'short' }}<br />
                 <b><u>Filled By</u>: </b>{{ order.filled_by }}
-            </span>
-        </div>
-
-        <div class="patient-label">
-            <b><u>PATIENT</u>:</b> {{ order.patient.name }}
-        </div>
-
-        <div>&nbsp</div>
-
-        <div class="order-specifics">
-            <b><u>DRUG</u>:</b> {{ order.drug.name_and_strength }}
-            <br />
-            <b><u>NDC</u>:</b> {{ order.drug.ndc }}
-            <br />
-            <b><u>DISPENSE QTY</u>:</b> {{ order.dispense_qty }}
-            <br />
-            <b><u>Drug Allergies</u>:</b> {{ order.patient.drug_allergies }}
-        </div>
-        <button ng-click="editOrder()" class="edit-button">Edit Rx</button>
-        <div class="drug-image-div">
-            Drug Image/Identifier:
-            <img src="{{ order.drug.drug_image }}" class="drug-image">
-        </div>
-
-
-        <div ng-show="showSnapCap" class="snapcap-alert">
-            PLEASE USE SNAP CAPS!
-        </div>
-
-        <div class="patient-notes-all">
-            <div class="patient-notes">
-                <div>&nbsp</div>
-                <b><u>Patient Notes</u>:</b>
             </div>
-            <div class="notes-listed">{{ order.patient_notes }}</div>
+            <div class="patient-label">
+                <b><u>PATIENT</u>:</b> {{ order.patient.name }}
+            </div>
         </div>
 
+        <div class="div2">
+            <div class="drug-label">
+                <b><u>DRUG</u>:</b> {{ order.drug.name_and_strength }}
+            </div>
+            <div class="ndc-label">
+                <b><u>NDC</u>:</b> {{ order.drug.ndc }}
+            </div>
+            <button ng-click="editOrder()" class="edit-button">Edit Rx</button>
+        </div>
+
+        <div class="div3">
+            <div class="dispense-qty-label">
+                <b><u>DISPENSE QTY</u>:</b> {{ order.dispense_qty }}
+            </div>
+            <div ng-show="showSnapCap" class="snapcap-alert">
+                PLEASE USE SNAP CAPS!
+            </div>
+            <div class="directions-label">
+                <b><u>Directions</u>:</b> {{ order.directions }}
+            </div>
+            <div class="patient-notes-label-final">
+                <b><u>Patient Notes</u>:</b>
+                <div class="notes-display">{{ order.patient_notes }}</div>
+            </div>
+            <div class="drug-image-div">
+                Drug Image/Identifier:
+                <img src="{{ order.drug.drug_image }}" class="drug-image">
+            </div>
+            <div class="drug-allergies-label">
+                <b><u>Drug Allergies</u>:</b> {{ order.patient.drug_allergies }}
+            </div>
+            <div class="invisible-div"></div>
+        </div>
         <!--Type NDC used to fill here to check if same as order-->
         <div class="verify-content">
             <div ng-show="verifyField">
@@ -58,8 +61,8 @@
                     <div ng-show="viewInitials">
                         <!--You will then be asked to type your initials-->
                         <div>
-                            <input type="text" ng-model="order.filled_by" placeholder="Type your Initials..">
-                            <button ng-click="initialed(order.filled_by)">Initial</button>
+                            <input type="text" ng-model="order.finalcheck_by" placeholder="Type your Initials..">
+                            <button ng-click="initialed(order.finalcheck_by)">Initial</button>
                         </div>
                         <!--Initials must be longer than one character, if not warning will pop up-->
                     </div>

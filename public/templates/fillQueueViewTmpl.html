@@ -1,39 +1,49 @@
 <div class="order-container">
     <div class="order-content">
-        <div>
-            <span class="rx-number-label"><b><u>Rx Number</u>:</b> #{{ order.rx_number }}</span>
-            <div class="order-info">
-                <b><u>Typed At</u>:</b> {{ order.typed_at | date: 'short' }}<br />
+
+        <div class="div1">
+            <div class="rx-number-label"><b><u>Rx Number</u>:</b> #{{ order.rx_number }}</div>
+            <div class="who-did-what-label">
+                <b><u>Typed At</u>:</b> {{ order.typed_at | date: 'short' }}
+                <br />
                 <b><u>Typed By</u>:</b> {{ order.typed_by }}
             </div>
+            <div class="patient-label">
+                <b><u>PATIENT</u>:</b> {{ order.patient.name }}
+            </div>
         </div>
 
-        <div class="patient-label">
-            <b><u>PATIENT</u>:</b> {{ order.patient.name }}
+        <div class="div2">
+            <div class="drug-label">
+                <b><u>DRUG</u>:</b> {{ order.drug.name_and_strength }}
+            </div>
+            <div class="ndc-label">
+                <b><u>NDC</u>:</b> {{ order.drug.ndc }}
+            </div>
+            <button ng-click="editOrder()" class="edit-button">Edit Rx</button>
         </div>
 
-        <div>&nbsp</div>
-
-        <div class="order-specifics">
-            <b><u>DRUG</u>:</b> {{ order.drug.name_and_strength }}<br />
-            <b><u>NDC</u>:</b> {{ order.drug.ndc }}<br />
-            <b><u>DISPENSE QTY</u>:</b> {{ order.dispense_qty }}
-        </div>
-        <button ng-click="editOrder()" class="edit-button">Edit Rx</button>
-
-        <div ng-show="showSnapCap" class="snapcap-alert">
-            PLEASE USE SNAP CAPS!
+        <div class="div3">
+            <div class="dispense-qty-label">
+                <b><u>DISPENSE QTY</u>:</b> {{ order.dispense_qty }}
+            </div>
+            <div ng-show="showSnapCap" class="snapcap-alert">
+                PLEASE USE SNAP CAPS!
+            </div>
+            <div class="invisible-div"></div>
         </div>
 
-        <div class="patient-notes-all">
-            <div class="patient-notes">
+        <div class="div4">
+            <div class="patient-notes-label">
                 <b><u>Patient Notes</u>:</b>
             </div>
-                <textarea type="text" class="notes-box" cols="30" rows="10" ng-model="order.patient_notes"></textarea>
+            <div class="notes-area-label">
+                <textarea type="text" class="notes-textarea" cols="30" rows="10" ng-model="order.patient_notes"></textarea>
+            </div>
         </div>
 
         <!--Type NDC used to fill here to check if same as order-->
-        <div class="verify-content">
+        <div class="div5">
             <div ng-show="verifyField">
                 <input type="text" ng-model="typedNdc" placeholder="Type whole NDC.." class="ndc-input">
                 <button type="submit" ng-click="verify(typedNdc)">Verify</button>

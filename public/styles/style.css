@@ -77,7 +77,7 @@ button:hover {
 .pills {
     text-align: center;
     width: 20%;
-    height: 60%;
+    height: 75%;
     margin-left: 4%;
     float: left;
     border-radius: 100px;
@@ -151,11 +151,17 @@ background-color: rgba(23, 126, 137, 1);
 }
 .patient-results-border {
     background-color: rgba(0, 0, 0, 0.6);
-    margin: 1%;
+    margin: 1% 0 1% 10%;
     padding: 3%;
     border-radius: 30px;
-    width: 98%;
+    width: 80%;
     height: 90%;
+}
+.patient-name-title {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: -1% 0 2% 0;
 }
 .patient-results-view {
     background-color: rgba(242, 242, 242, 0.4);
@@ -180,14 +186,17 @@ background-color: rgba(23, 126, 137, 1);
     font-size: 28px;
     text-align: center;
     margin-bottom: 1%;
+    font-weight: bold;
 }
 .order-history-content {
     border: 1px solid black;
-    /*box-shadow: inset 0 0 15px;*/
+    background-color: rgba(242, 242, 242, 0.4);
+    box-shadow: inset 0 0 15px;
     padding: 2%;
+    margin-bottom: 1%;
 }
 .rx-number {
-    border: 1px dotted black;
+    border: 1px solid black;
     padding: 0.5%;
 }
 .done {
@@ -198,9 +207,10 @@ background-color: rgba(23, 126, 137, 1);
     color: red;
     font-weight: bold;
 }
-.back-button {
+.search-back-button {
+    margin-top: -2%;
+    margin-left: 10%;
     clear: both;
-    float: left;
 }
 
 /*/////////////////////////*/
@@ -291,13 +301,25 @@ background-color: rgba(23, 126, 137, 1);
 #radio-div {
     float: left;
 }
+.modal-style {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+.order-added {
+    border: none;
+    background-color: green;
+    width: 100%;
+}
 
 
-/*//////////////////////////*/
-/*Fill Queue Template Style*/
-/*////////////////////////*/
+/*//////////////////////////////////*/
+/*Final & Fill Queue Template Style*/
+/*////////////////////////////////*/
 
-/*Fixed Queue list*/
+
+/*//////Fixed Queue list on Left//////*/
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .queue-list {
     position: absolute;
     width: 35%;
@@ -319,6 +341,7 @@ background-color: rgba(23, 126, 137, 1);
 }
 .rx-number-column {
     width: 25%;
+    padding-left: 2%;
 }
 .patient-column {
     width: 50%;
@@ -326,21 +349,29 @@ background-color: rgba(23, 126, 137, 1);
 .due-at-column {
     width: 25%;
 }
+.due-warning {
+    color: #b20000;
+}
+/*^^^^^^^^^^^^^^^^^^^*/
+
+
+/*//////Order Container Style//////*/
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 .page-title-div {
     width: 100%;
     text-align: center;
-    margin-left: 7%;
+    margin-left: 15%;
 }
 .page-title {
     text-align: center;
 }
-
 .order-container {
+    position: absolute;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 30px;
-    margin: 0 0 2% 22%;
+    margin: 0 0 2% 23.5%;
     padding: 4%;
-    width: 70%;
+    width: 85%;
     font-size: 18px;
 }
 .order-content {
@@ -350,106 +381,121 @@ background-color: rgba(23, 126, 137, 1);
     background-color: rgba(242, 242, 242, 0.4);
     box-shadow: 0 0 10px;
 }
-.rx-number-label {
-    float: left;
+.order-specifics-view {
+    width: 65%;
+    height: 100%;
+    position: absolute;
+    left: 25%;
 }
-.order-info {
+/*^^^^^^^^^^^^^^^^^^^*/
+
+/*//////Order Specifics Style//////*/
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+/*DIV-1*/
+.rx-number-label {
+    position: relative;
+    width: 40%;
+    float: left;
+    /*border: 1px dashed red;*/
+    font-size: 18px;
+}
+.who-did-what-label {
+    position: relative;
+    float: left;
+    /*border: 1px dashed red;*/
     box-shadow: 0 0 5px;
     border-radius: 10px;
     width: 40%;
+    margin-left: 10%;
     padding: 1%;
-    margin-left: 23%;
-    margin-bottom: 5%;
-    float: left;
-}
-.drug-image-div {
-    border-radius: 5px;
-    border: 1px solid black;
-    background-color: #e5e5e5;
-    font-weight: bold;
-    padding: 1%;
-    width: 33%;
-    margin-top: -7%;
-    margin-left: 6%;
-    float: left;
-}
-.drug-image {
-    width: 100%;
-    border: 1px solid black;
-    border-radius: 5px;
 }
 .patient-label {
+    position: relative;
+    top: -35px;
+    /*border: 1px dashed red;*/
     clear: both;
+    width: 40%;
+    font-size: 20px;
 }
-.order-specifics {
+
+/*DIV-2*/
+.drug-label {
+    position: relative;
     float: left;
+    /*border: 1px dashed red;*/
+    font-size: 22px;
+}
+.ndc-label {
+    position: relative;
+    float: left;
+    margin-left: 5%;
+    /*border: 1px dashed red;*/
+    font-size: 22px;
+}
+.edit-button {
+    margin-top: 0;
+    margin-left: 3%;
+}
+
+/*DIV-3*/
+.dispense-qty-label {
+    /*border: 1px dashed red;*/
+    position: relative;
+    float: left;
+    width: 18%;
+    margin-right: 5%;
 }
 .snapcap-alert {
     position: relative;
+    float: left;
     color: black;
     background-color: #f28b0b;
-    width: 30%;
+    width: 33%;
+    margin-right: 44%;
     text-align: center;
     border-radius: 10px;
-    clear: both;
     padding: 6px;
     font-weight: bold;
     font-size: 19px;
-    margin: 10% 0 2% 0;
 }
-.edit-button {
-    float: left;
-    margin-left: 5.5%;
-    margin-top: 0;
-}
-.patient-notes {
-    text-align: left;
-}
-.patient-notes-all {
+.invisible-div {
     clear: both;
+}
+
+/*DIV-4*/
+.patient-notes-label {
+    /*border: 1px dashed red;*/
+    width: 50%;
+}
+.notes-area-label {
+    /*border: 1px dashed red;*/
+    position: relative;
+    width: 50%;
     float: left;
 }
-.notes-box {
-    height: 200px;
-    width: 500px;
+.notes-textarea {
+    float: none;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    height: 150px;
 }
-.notes-listed {
-    border: 1px solid black;
-    border-radius: 5px;
-    height: 200px;
-    width: 500px;
-}
-.ndc-input {
-    width: 500px;
-}
-.verify-content {
-    clear: both;
+
+/*DIV-5*/
+.verified {
+    color: black;
+    background-color: green;
+    width: 100%;
+    border-radius: 10px;
+    padding: 2%;
+    box-shadow: 0 0 30px;
+    margin-top: 1%;
 }
 .verified-label {
     text-align: center;
     font-size: 40px;
     width: 100%;
-}
-
-.verified {
-    color: black;
-    background-color: green;
-    width: 70%;
-    border-radius: 10px;
-    padding: 2%;
-    box-shadow: 0 0 30px;
-    margin-top: 5%;
-}
-
-.due-warning {
-    color: #b20000;
-}
-
-.queue-view {
-    width: 75%;
-    height: 100%;
-    position: absolute;
-    left: 25%;
 }
 .incorrect {
     color: black;
@@ -467,3 +513,56 @@ background-color: rgba(23, 126, 137, 1);
     text-align: left;
     clear: both;
 }
+/*^^^^^^^^^^^^^^^^^^^*/
+
+
+/*//////Final Verification Style Specifics//////*/
+/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+/*In DIV-3*/
+.directions-label {
+    position: relative;
+    /*border: 1px dashed red;*/
+    clear: both;
+    float: left;
+    width: 50%;
+    margin-top: 3%;
+}
+.patient-notes-label-final {
+    clear: both;
+    float: left;
+    margin-top: 2%;
+    /*border: 1px dashed red;*/
+    width: 50%;
+}
+.drug-image-div {
+    position: relative;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: #e5e5e5;
+    font-weight: bold;
+    padding: 1%;
+    width: 33%;
+    margin: -5.8% 10% 0 7%;
+    float: left;
+}
+.drug-image {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.notes-display {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 150px;
+}
+.drug-allergies-label {
+    position: relative;
+    /*border: 1px dashed red;*/
+    clear: both;
+    float: left;
+    margin-top: 2%;
+}
+.ndc-input {
+    width: 500px;
+}
+

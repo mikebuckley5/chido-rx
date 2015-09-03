@@ -1,5 +1,6 @@
 <div class="patient-search-view">
     <div class="patient-results-border">
+        <div class="patient-name-title">{{ patientInfo.name }}</div>
         <div class="patient-results-view">
             <div class="patient-demographics">
                 <u><h4>Patient Demographics</u>:</h4>
@@ -39,11 +40,11 @@
             </div>
             <div class="patient-order-history">
                 <div class="order-history-title"><u>Order History</u></div>
-                <div ng-repeat="order in patientOrders" class="order-history-content">
+                <div ng-repeat="order in patientOrders | orderBy:['-beingFilled', '-beingChecked']:reverse" class="order-history-content">
                     <span class="rx-number"><b>Rx#:</b> {{ order.rx_number }}</span> &nbsp&nbsp&nbsp
-                    <span ng-show="dateFilled"><b>Date Filled:</b> &nbsp {{ order.finalcheck_at | date: 'longDate' }}</span>
-                    <span ng-show="beingChecked"><b>Status:</b> &nbsp <span  class="in-process">Being Checked..</span></span>
-                    <span ng-show="beingFilled"><b>Status:</b> &nbsp <span class="in-process">Being Filled..</span></span>
+                    <span ng-show="order.dateFilled"><b>Date Filled:</b> &nbsp {{ order.finalcheck_at | date: 'longDate' }}<span class="done"> - Complete</span></span>
+                    <span ng-show="order.beingChecked"><b>Status:</b> &nbsp <span  class="in-process">Being Checked..</span></span>
+                    <span ng-show="order.beingFilled"><b>Status:</b> &nbsp <span class="in-process">Being Filled..</span></span>
                     <br />
                     <br />
                     <span><b>Drug:</b> &nbsp {{ order.drug.name_and_strength }}</span> &nbsp&nbsp&nbsp
@@ -60,11 +61,4 @@
             </div>
         </div>
     </div>
-    <!--<div class="back-button">
-    <a href="#/landing"><button>Back to Home</button></a>
-</div>-->
-
-
-
-
 </div>
