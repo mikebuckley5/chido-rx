@@ -1,4 +1,5 @@
 <div class="order-container">
+    <div class="patient-label">{{ order.patient.name }}</div>
     <div class="order-content">
 
         <div class="div1">
@@ -8,9 +9,6 @@
                 <b><u>Typed By</u>:</b> {{ order.typed_by }}<br />
                 <b><u>Filled At</u>: </b>{{ order.filled_at | date: 'short' }}<br />
                 <b><u>Filled By</u>: </b>{{ order.filled_by }}
-            </div>
-            <div class="patient-label">
-                <b><u>PATIENT</u>:</b> {{ order.patient.name }}
             </div>
         </div>
 
